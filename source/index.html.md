@@ -62,11 +62,7 @@ Here is a list of software/packages you need:
  
 ### Setting up dependencies
  
-## JDK 1.8.60
-Use the following command to install JDK:
- ```sh
-$  sudo apt install openjdk-8-jre-headless
- ```
+
  ## GIT
  Use the following command to install GIT:
  ```sh
