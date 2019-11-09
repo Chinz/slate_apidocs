@@ -1,3 +1,21 @@
+---
+title: API Reference
+
+language_tabs: # must be one of https://git.io/vQNgJ
+  - shell
+  - ruby
+  - python
+  - javascript
+
+toc_footers:
+  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+
+includes:
+  - errors
+
+search: true
+---
 # Bruce
 ### What is Bruce?
 Bruce puts forward Redfish aggregation function that allows northbound clients to interact with the system and manage southbound infrastructure by using Redfish compliant APIs. By offering a plug-in framework, Bruce allows for managing equipment with different level of Redfish compliance and even equipment that do not know how to speak Redfish.
