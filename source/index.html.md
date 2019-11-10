@@ -1,245 +1,238 @@
 ---
-__Advertisement :)__
+title: API Reference
 
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-  resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-  i18n with plurals support and easy syntax.
+language_tabs: # must be one of https://git.io/vQNgJ
+  - shell
+  - ruby
+  - python
+  - javascript
 
-You will like those projects!
+toc_footers:
+  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
+includes:
+  - errors
+
+search: true
 ---
 
-# h1 Heading 8-)
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
+# Introduction to Kittens
 
+Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
-## Horizontal Rules
+We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-___
+This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
----
+# Authentication
 
-***
+> To authorize, use this code:
 
+```ruby
+require 'kittn'
 
-## Typographic replacements
-
-Enable typographer option to see result.
-
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
-
-test.. test... test..... test?..... test!....
-
-!!!!!! ???? ,,  -- ---
-
-"Smartypants, double quotes" and 'single quotes'
-
-
-## Emphasis
-
-**This is bold text**
-
-__This is bold text__
-
-*This is italic text*
-
-_This is italic text_
-
-~~Strikethrough~~
-
-
-## Blockquotes
-
-
-> Blockquotes can also be nested...
->> ...by using additional greater-than signs right next to each other...
-> > > ...or with spaces between arrows.
-
-
-## Lists
-
-Unordered
-
-+ Create a list by starting a line with `+`, `-`, or `*`
-+ Sub-lists are made by indenting 2 spaces:
-  - Marker character change forces new list start:
-    * Ac tristique libero volutpat at
-    + Facilisis in pretium nisl aliquet
-    - Nulla volutpat aliquam velit
-+ Very easy!
-
-Ordered
-
-1. Lorem ipsum dolor sit amet
-2. Consectetur adipiscing elit
-3. Integer molestie lorem at massa
-
-
-1. You can use sequential numbers...
-1. ...or keep all the numbers as `1.`
-
-Start numbering with offset:
-
-57. foo
-1. bar
-
-
-## Code
-
-Inline `code`
-
-Indented code
-
-    // Some comments
-    line 1 of code
-    line 2 of code
-    line 3 of code
-
-
-Block code "fences"
-
-```
-Sample text here...
+api = Kittn::APIClient.authorize!('meowmeowmeow')
 ```
 
-Syntax highlighting
+```python
+import kittn
 
-``` js
-var foo = function (bar) {
-  return bar++;
-};
-
-console.log(foo(5));
+api = kittn.authorize('meowmeowmeow')
 ```
 
-## Tables
+```shell
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here"
+  -H "Authorization: meowmeowmeow"
+```
 
-| Option | Description |
-| ------ | ----------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+```javascript
+const kittn = require('kittn');
 
-Right aligned columns
+let api = kittn.authorize('meowmeowmeow');
+```
 
-| Option | Description |
-| ------:| -----------:|
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default. |
-| ext    | extension to be used for dest files. |
+> Make sure to replace `meowmeowmeow` with your API key.
 
+Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
 
-## Links
+Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-[link text](http://dev.nodeca.com)
+`Authorization: meowmeowmeow`
 
-[link with title](http://nodeca.github.io/pica/demo/ "title text!")
+<aside class="notice">
+You must replace <code>meowmeowmeow</code> with your personal API key.
+</aside>
 
-Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
+# Kittens
 
+## Get All Kittens
 
-## Images
+```ruby
+require 'kittn'
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get
+```
 
-Like links, Images also have a footnote style syntax
+```python
+import kittn
 
-![Alt text][id]
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get()
+```
 
-With a reference later in the document defining the URL location:
+```shell
+curl "http://example.com/api/kittens"
+  -H "Authorization: meowmeowmeow"
+```
 
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+```javascript
+const kittn = require('kittn');
 
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
+```
 
-## Plugins
+> The above command returns JSON structured like this:
 
-The killer feature of `markdown-it` is very effective support of
-[syntax plugins](https://www.npmjs.org/browse/keyword/markdown-it-plugin).
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
 
+This endpoint retrieves all kittens.
 
-### [Emojies](https://github.com/markdown-it/markdown-it-emoji)
+### HTTP Request
 
-> Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
->
-> Shortcuts (emoticons): :-) :-( 8-) ;)
+`GET http://example.com/api/kittens`
 
-see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
+### Query Parameters
 
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
 
-### [Subscript](https://github.com/markdown-it/markdown-it-sub) / [Superscript](https://github.com/markdown-it/markdown-it-sup)
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
 
-- 19^th^
-- H~2~O
+## Get a Specific Kitten
 
+```ruby
+require 'kittn'
 
-### [\<ins>](https://github.com/markdown-it/markdown-it-ins)
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.get(2)
+```
 
-++Inserted text++
+```python
+import kittn
 
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+```
 
-### [\<mark>](https://github.com/markdown-it/markdown-it-mark)
+```shell
+curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+```
 
-==Marked text==
+```javascript
+const kittn = require('kittn');
 
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
 
-### [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+> The above command returns JSON structured like this:
 
-Footnote 1 link[^first].
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
 
-Footnote 2 link[^second].
+This endpoint retrieves a specific kitten.
 
-Inline footnote^[Text of inline footnote] definition.
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
-Duplicated footnote reference[^second].
+### HTTP Request
 
-[^first]: Footnote **can have markup**
+`GET http://example.com/kittens/<ID>`
 
-    and multiple paragraphs.
+### URL Parameters
 
-[^second]: Footnote text.
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
 
+## Delete a Specific Kitten
 
-### [Definition lists](https://github.com/markdown-it/markdown-it-deflist)
+```ruby
+require 'kittn'
 
-Term 1
+api = Kittn::APIClient.authorize!('meowmeowmeow')
+api.kittens.delete(2)
+```
 
-:   Definition 1
-with lazy continuation.
+```python
+import kittn
 
-Term 2 with *inline markup*
+api = kittn.authorize('meowmeowmeow')
+api.kittens.delete(2)
+```
 
-:   Definition 2
+```shell
+curl "http://example.com/api/kittens/2"
+  -X DELETE
+  -H "Authorization: meowmeowmeow"
+```
 
-        { some code, part of Definition 2 }
+```javascript
+const kittn = require('kittn');
 
-    Third paragraph of definition 2.
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.delete(2);
+```
 
-_Compact style:_
+> The above command returns JSON structured like this:
 
-Term 1
-  ~ Definition 1
+```json
+{
+  "id": 2,
+  "deleted" : ":("
+}
+```
 
-Term 2
-  ~ Definition 2a
-  ~ Definition 2b
+This endpoint deletes a specific kitten.
 
+### HTTP Request
 
-### [Abbreviations](https://github.com/markdown-it/markdown-it-abbr)
+`DELETE http://example.com/kittens/<ID>`
 
-This is HTML abbreviation example.
+### URL Parameters
 
-It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
-
-*[HTML]: Hyper Text Markup Language
-
-### [Custom containers](https://github.com/markdown-it/markdown-it-container)
-
-::: warning
-*here be dragons*
-:::
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to delete
