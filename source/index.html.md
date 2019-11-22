@@ -3,24 +3,30 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - curl
-  
+
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  
+   - Aggregating_resources
 
 search: true
 ---
 # <a name="GUID-C1C0E36F-4C5E-44F5-BB6C-1281B7C9ACDC"/> About This Guide
 
-This document provides reference information for the REST API requests that you can send to FODIM RESTful API. This document is intended for the technical personnel who customize and deploy this optimized solution according to the requirements of the end customer.
+This document provides reference
+information for the REST API requests
+that you can send to FODIM RESTful API.
+This document is intended for the
+technical personnel who customize and
+deploy this optimized solution according
+to the requirements of the end customer.
 
 
 # <a name="GUID-097D329B-7B27-4682-B24B-0C869A8D6109"/> Introduction to Framework for Open Distributed Manageability
 
-The FODIM \(Framework for Open Distributed Manageability\) RESTful API for HPE FODIM is a programming interface enabling management of HPE Telco NFV infrastructure. 
+The FODIM \(Framework for Open Distributed Manageability\) RESTful API for HPE FODIM is a programming interface enabling management of HPE Telco NFV infrastructure.
 FODIM combines with Redfish aggregation function to allow northbound clients to interact with the system and manage the southbound infrastructure using Redfish compliant APIs.
 
 With modern scripting languages, you can easily write simple REST clients for RESTful APIs.
@@ -29,7 +35,7 @@ With modern scripting languages, you can easily write simple REST clients for RE
 
 The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.
 
-![](GUID-80B6D875-3C75-47BB-8CC1-A7426CCBC145-high.png) 
+![](GUID-80B6D875-3C75-47BB-8CC1-A7426CCBC145-high.png)
 
 
 
@@ -172,11 +178,11 @@ Following are the HTTP Status codes with their descriptions:
 
 Any one of the following authentication methods must be implemented to authenticate requests to the FODIM Redfish services:
 
--   **HTTP BASIC authentication** 
+-   **HTTP BASIC authentication**
 
     You can implement HTTP BASIC authentication by providing base64 encoded user name and password in an HTTP `Authorization: Basic` header \( Basic Auth\).
 
--   **Redfish session login authentication** 
+-   **Redfish session login authentication**
 
     You can implement Redfish Session Login Authentication by creating a Redfish login session through session management interface. To learn more about a session, See [Creating a session](#) section.
 
@@ -193,7 +199,7 @@ Any one of the following authentication methods must be implemented to authentic
 
 </blockquote>
 
- 
+
 
 <blockquote>
 NOTE:
@@ -231,11 +237,11 @@ FODIM offers Redfish SessionService interface for managing sessions and exposes 
 
 ## <a name="SECTION_7D1A74F40AF24CC58CA9E4D4C7931EEC"/> Supported APIs
 
--   `/redfish/v1/SessionService` 
+-   `/redfish/v1/SessionService`
 
--   `/redfish/v1/SessionService/Sessions` 
+-   `/redfish/v1/SessionService/Sessions`
 
--   `/redfish/v1/SessionService/Sessions/{session id}` 
+-   `/redfish/v1/SessionService/Sessions/{session id}`
 
 
 
@@ -252,7 +258,7 @@ See [Creating a role](#).
 
 With FODIM, there are two kinds of defined roles:
 
--   **Redfish pre-defined roles** 
+-   **Redfish pre-defined roles**
 
     Redfish pre-defined roles come with a pre-defined set of privileges. Following are the Redfish pre-defined roles:
 
@@ -262,7 +268,7 @@ With FODIM, there are two kinds of defined roles:
 
     -   ReadOnly
 
--   **OEM\(Original Equipment Manufacturer\) roles** 
+-   **OEM\(Original Equipment Manufacturer\) roles**
 
     OEM roles are the custom roles that you can create and assign to a user. Following are the available OEM roles:
 
@@ -275,7 +281,7 @@ With FODIM, there are two kinds of defined roles:
      -    Monitor
  :   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.
 
- 
+
 <blockquote>
 NOTE:
 
@@ -308,7 +314,7 @@ The following privileges can be assigned to any user in FODIM:
  -    Login
  :   Users with this privilege can log into the service and read the resources.
 
- 
+
 <blockquote>
 NOTE:
 
@@ -351,15 +357,15 @@ It exposes Redfish AccountsService APIs to manage user accounts. Use these endpo
 
 **Supported APIs**:
 
--   `/redfish/v1/AccountService` 
+-   `/redfish/v1/AccountService`
 
--   `/redfish/v1/AccountService/Accounts` 
+-   `/redfish/v1/AccountService/Accounts`
 
--   `/redfish/v1/AccountService/Accounts/{Account Id}` 
+-   `/redfish/v1/AccountService/Accounts/{Account Id}`
 
--   `/redfish/v1/AccountService/Roles` 
+-   `/redfish/v1/AccountService/Roles`
 
--   `/redfish/v1/AccountService/Roles/{Role id}` 
+-   `/redfish/v1/AccountService/Roles/{Role id}`
 
 
 ## <a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"/> Authentication
@@ -396,13 +402,13 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 ## <a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints
 
--   `/redfish/v1/AggregatorService/Actions/AggregationService.Add` 
+-   `/redfish/v1/AggregatorService/Actions/AggregationService.Add`
 
--   `/redfish/v1/AggregatorService/Actions/AggregationService.Remove` 
+-   `/redfish/v1/AggregatorService/Actions/AggregationService.Remove`
 
--   `/redfish/v1/AggregationService/Actions/AggregationService.Reset` 
+-   `/redfish/v1/AggregationService/Actions/AggregationService.Reset`
 
--   `/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder` 
+-   `/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder`
 
 
 
@@ -415,7 +421,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 ## <a name="SECTION_DF9D801BAD2C4FCB8868F370BECEF031"/> Description
 
-This action adds a single server in the inventory. 
+This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.
 
 To poll this action for its completion, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.
@@ -428,9 +434,9 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 \*Computer System Id is represented as "\{UUID\}:\{<n\>\}" in FODIM.
 
 </blockquote>
- 
 
- 
+
+
 
 ## <a name="SECTION_6DE81E7892254E0687C134D360613807"/> Usage
 
@@ -503,13 +509,13 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 ## <a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints
 
--   `/redfish/v1/TaskService` 
+-   `/redfish/v1/TaskService`
 
--   `/redfish/v1/TaskService/Tasks` 
+-   `/redfish/v1/TaskService/Tasks`
 
--   `/redfish/v1/TaskService/Tasks/{TaskID}` 
+-   `/redfish/v1/TaskService/Tasks/{TaskID}`
 
--   `/taskmon/{TaskID}` 
+-   `/taskmon/{TaskID}`
 # <a name="GUID-3E0F2F80-1CEC-4182-85B8-3B9533874E44"/> Subscribing northbound clients to southbound events
 
 FODIM offers an eventing interface that allows northbound clients to interact and receive notifications such as alarms from southbound equipment. It exposes Redfish EventService APIs as an interface for managing events.
@@ -531,9 +537,9 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 ## <a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints
 
--   `/redfish/v1/EventService/Subscriptions` 
+-   `/redfish/v1/EventService/Subscriptions`
 
--   `redfish/v1/EventService` 
+-   `redfish/v1/EventService`
 
 
 
@@ -555,48 +561,44 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 ## <a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints
 
--    `/redfish/v1/Systems` 
+-    `/redfish/v1/Systems`
 
--   `/redfish/v1/Systems/<ComputerSystemId>` 
+-   `/redfish/v1/Systems/<ComputerSystemId>`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/Memory` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/Memory`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/MemoryDomains` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/MemoryDomains`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/EthernetInterfaces` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/EthernetInterfaces`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/bios` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/bios`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/SecureBoot` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/SecureBoot`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/Storage` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/Storage`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/LogServices` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/LogServices`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/Processors` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/Processors`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/Memory/proc1dimm1` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/Memory/proc1dimm1`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/EthernetInterfaces/1` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/EthernetInterfaces/1`
 
--   `/redfish/v1/Systems/<ComputerSystemId>/Processors/1` 
+-   `/redfish/v1/Systems/<ComputerSystemId>/Processors/1`
 
--   `/redfish/v1/Chassis` 
+-   `/redfish/v1/Chassis`
 
--   `/redfish/v1/Chassis/{ComputerSystemId}` 
+-   `/redfish/v1/Chassis/{ComputerSystemId}`
 
--   `/redfish/v1/Chassis/<ComputerSystemId>/NetworkAdapters` 
+-   `/redfish/v1/Chassis/<ComputerSystemId>/NetworkAdapters`
 
--   `/redfish/v1/Chassis/<ComputerSystemId>/Thermal` 
+-   `/redfish/v1/Chassis/<ComputerSystemId>/Thermal`
 
--   `/redfish/v1/Chassis/<ComputerSystemId>/Power` 
+-   `/redfish/v1/Chassis/<ComputerSystemId>/Power`
 
--   `/redfish/v1/Systems?filter=<searchKeys>%20<conditionKeys>%20<value>` 
+-   `/redfish/v1/Systems?filter=<searchKeys>%20<conditionKeys>%20<value>`
 
--   `/redfish/v1/Systems/{ComputerSystemId}/Actions/ComputerSystem.Reset` 
+-   `/redfish/v1/Systems/{ComputerSystemId}/Actions/ComputerSystem.Reset`
 
--   `/redfish/v1/Systems/{ComputerSystemId}/Actions/ComputerSystem.SetDefaultBootOrder` 
-
-
-
-
+-   `/redfish/v1/Systems/{ComputerSystemId}/Actions/ComputerSystem.SetDefaultBootOrder`
