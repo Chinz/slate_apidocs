@@ -39,19 +39,16 @@ The FODIM based on Redfish standards uses RESTful API to create an environment t
 
 
 
-#  List of available APIs
+#  List of supported APIs
 
 FODIM Redfish supports the following APIs:
 
-|API URI|Operation Applicable|
+|URI|Operation Applicable|
 |-------|--------------------|
 |/redfish|GET|
 |/redfish/v1|GET|
 |/redfish/v1/odata|GET|
 |/redfish/v1/$metadata|GET|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/redfish/v1/SessionService|GET|
 |/redfish/v1/SessionService/Sessions|POST, GET|
 |redfish/v1/SessionService/Sessions/\{session id\}|GET, DELETE|
@@ -61,16 +58,10 @@ FODIM Redfish supports the following APIs:
 |/redfish/v1/AccountService/PrivilegeRegistry|GET|
 |/redfish/v1/AccountService/Roles|POST, GET|
 |/redfish/v1/AccountService/Roles/\{Roles id\}|GET, DELETE, PATCH|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/redfish/v1/AggregationService/Actions/AggregationService.Add|POST|
 |/redfish/v1/AggregationService/Actions/AggregationService.Remove|POST|
 |/redfish/v1/AggregationService/Actions/AggregationService.Reset|POST|
 |/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder|POST|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/redfish/v1/Systems|GET|
 |/redfish/v1/Systems/\{ComputerSystemId\}|GET|
 |/redfish/v1/Systems/\{ComputerSystemId\}/Memory|GET|
@@ -90,34 +81,22 @@ FODIM Redfish supports the following APIs:
 |/redfish/v1/Chassis/\{ComputerSystemId\}/NetworkAdapters|GET|
 |/redfish/v1/Chassis/\{ComputerSystemId\}/Power|GET|
 |/redfish/v1/Systems?filter=\{searchKeys\}%20\{conditionKeys\}%20\{value\}|GET|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/redfish/v1/EventService/Subscriptions|POST|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/redfish/v1/Fabrics|GET|
 |/redfish/v1/Fabrics/\{fabricID\}|GET|
 |/redfish/v1/Fabrics/\{fabricID\}/Switches|GET|
 |/redfish/v1/Fabrics/\{fabricID\}/Switches/\{switchID\}|GET|
 | /redfish/v1/Fabrics/\{fabricID\}/Switches/\{switchID\}/Ports<br> |GET|
 | /redfish/v1/Fabrics/\{fabricID\} /Switches/\{switchID\}/Ports/\{portid\}<br> |GET|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/redfish/v1/TaskService|GET|
 |/redfish/v1/TaskService/Tasks|GET|
 |/redfish/v1/TaskService/Tasks/\{TaskID\}|GET|
-
-|API URI|Operation Applicable|
-|-------|--------------------|
 |/taskmon/\{TaskID\}|GET|
 
 
 NOTE:
 
-<ComputerSystemId\> is ORCA specified unique id of the server. It is represented as "UUID:<n\>" in FODIM \( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
+*ComputerSystemId is ORCA specified unique id of the server. It is represented as "UUID:<n\>" in FODIM \( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
 
 
 #  HTTP Request Methods, Responses, and Error Codes for FODIM REST API
@@ -409,10 +388,11 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 #  Adding a Server
 
-|<strong>Method</strong> |<strong>POST</strong> |
-|<strong>URI</strong> |`/redfish/v1/AggregatorService/Actions/AggregationService.Add` |
-|<strong>Returns</strong> |Location URI of the task monitor associated with this operation in the response header.|
-|<strong>Response Code</strong> |202|
+|Method |POST|
+|-----|-------------------|
+|URI|`/redfish/v1/AggregatorService/Actions/AggregationService.Add` |
+|Returns |Location URI of the task monitor associated with this operation in the response header.|
+|Response Code |202|
 
 ##  Description
 
