@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;curl&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,16 +211,75 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="curl">curl</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#about-this-guide" class="toc-h1 toc-link" data-title=" About This Guide"><a name="GUID-C1C0E36F-4C5E-44F5-BB6C-1281B7C9ACDC"></a> About This Guide</a>
+          </li>
+          <li>
+            <a href="#introduction-to-framework-for-open-distributed-manageability" class="toc-h1 toc-link" data-title=" Introduction to Framework for Open Distributed Manageability"><a name="GUID-097D329B-7B27-4682-B24B-0C869A8D6109"></a> Introduction to Framework for Open Distributed Manageability</a>
+          </li>
+          <li>
+            <a href="#fodim-logical-architecture" class="toc-h1 toc-link" data-title=" FODIM logical architecture"><a name="GUID-34228414-88DA-4989-96EE-413E0B8827BE"></a> FODIM logical architecture</a>
+          </li>
+          <li>
+            <a href="#list-of-available-apis" class="toc-h1 toc-link" data-title=" List of available APIs"><a name="GUID-3F3347E9-3570-4FFB-B515-BF17D2745CB4"></a> List of available APIs</a>
+          </li>
+          <li>
+            <a href="#http-request-methods-responses-and-error-codes-for-fodim-rest-api" class="toc-h1 toc-link" data-title=" HTTP Request Methods, Responses, and Error Codes for FODIM REST API"><a name="GUID-68797EFE-178C-48A6-9ED1-47D35A1233C5"></a> HTTP Request Methods, Responses, and Error Codes for FODIM REST API</a>
+          </li>
+          <li>
+            <a href="#authenticating-requests-when-using-the-fodim-rest-apis" class="toc-h1 toc-link" data-title=" Authenticating requests when using the FODIM REST APIs"><a name="GUID-63D85EBC-2982-494F-8B65-2DEDED0536A8"></a> Authenticating requests when using the FODIM REST APIs</a>
+          </li>
+          <li>
+            <a href="#creating-and-managing-sessions" class="toc-h1 toc-link" data-title=" Creating and managing sessions"><a name="GUID-A5EBA130-1939-4467-955A-5FA070E5A488"></a> Creating and managing sessions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#supported-apis" class="toc-h2 toc-link" data-title=" Supported APIs"><a name="SECTION_7D1A74F40AF24CC58CA9E4D4C7931EEC"></a> Supported APIs</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#configuring-roles-and-privileges-for-a-user" class="toc-h1 toc-link" data-title=" Configuring roles and privileges for a user"><a name="GUID-2DAB4A03-6714-4738-822F-6492D3A384F4"></a> Configuring roles and privileges for a user</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#roles" class="toc-h2 toc-link" data-title=" Roles"><a name="SECTION_BBA6081A64414384AF54FA4A8D24524D"></a> Roles</a>
+                  </li>
+                  <li>
+                    <a href="#privileges" class="toc-h2 toc-link" data-title=" Privileges"><a name="SECTION_35D1CE274D6F497481A82BC84189C6F8"></a> Privileges</a>
+                  </li>
+                  <li>
+                    <a href="#mapping-of-privileges-to-roles-in-fodim" class="toc-h2 toc-link" data-title=" Mapping of privileges to roles in FODIM"><a name="SECTION_5FEE4116689947DDA3F54DAE14F8BCCA"></a> Mapping of privileges to roles in FODIM</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#creating-and-managing-user-accounts" class="toc-h1 toc-link" data-title=" Creating and managing user accounts"><a name="GUID-5AC7D07F-6843-4089-9A6F-2B2F760FDE7A"></a> Creating and managing user accounts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title=" Authentication"><a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"></a> Authentication</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#aggregating-and-managing-southbound-infrastructure-use-case-for-server-aggregation" class="toc-h1 toc-link" data-title=" Aggregating and managing southbound infrastructure (use case for server aggregation)"><a name="GUID-FCAF2009-0DB1-4AC6-9439-BD6776C59AC3"></a> Aggregating and managing southbound infrastructure (use case for server aggregation)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#prerequisites" class="toc-h2 toc-link" data-title=" Prerequisites"><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"></a> Prerequisites</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-2" class="toc-h2 toc-link" data-title=" Authentication"><a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"></a> Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#supported-endpoints" class="toc-h2 toc-link" data-title=" Supported Endpoints"><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"></a> Supported Endpoints</a>
+                  </li>
+              </ul>
+          </li>
           <li>
             <a href="#adding-a-server" class="toc-h1 toc-link" data-title=" Adding a Server"><a name="GUID-FD398AD7-F078-4D07-A529-0AC21975452F"></a> Adding a Server</a>
               <ul class="toc-list-h2">
@@ -245,24 +304,735 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#managing-tasks" class="toc-h1 toc-link" data-title=" Managing tasks"><a name="GUID-BF1C7CEB-B101-4BFC-930A-8A582AC478F6"></a> Managing tasks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#prerequisites-2" class="toc-h2 toc-link" data-title=" Prerequisites"><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"></a> Prerequisites</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-3" class="toc-h2 toc-link" data-title=" Authentication"><a name="SECTION_CDE2B668C2A248338F49149628D7B304"></a> Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#supported-endpoints-2" class="toc-h2 toc-link" data-title=" Supported Endpoints"><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"></a> Supported Endpoints</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#subscribing-northbound-clients-to-southbound-events" class="toc-h1 toc-link" data-title=" Subscribing northbound clients to southbound events"><a name="GUID-3E0F2F80-1CEC-4182-85B8-3B9533874E44"></a> Subscribing northbound clients to southbound events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#prerequisites-3" class="toc-h2 toc-link" data-title=" Prerequisites"><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"></a> Prerequisites</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-4" class="toc-h2 toc-link" data-title=" Authentication"><a name="SECTION_CDE2B668C2A248338F49149628D7B304"></a> Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#supported-endpoints-3" class="toc-h2 toc-link" data-title=" Supported Endpoints"><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"></a> Supported Endpoints</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#discovering-and-manipulating-southbound-infrastructure" class="toc-h1 toc-link" data-title=" Discovering and manipulating southbound infrastructure"><a name="GUID-D6EAF208-051A-4A34-87BC-9F40423CFA67"></a> Discovering and manipulating southbound infrastructure</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#prerequisites-4" class="toc-h2 toc-link" data-title=" Prerequisites"><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"></a> Prerequisites</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-5" class="toc-h2 toc-link" data-title=" Authentication"><a name="SECTION_CDE2B668C2A248338F49149628D7B304"></a> Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#supported-endpoints-4" class="toc-h2 toc-link" data-title=" Supported Endpoints"><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"></a> Supported Endpoints</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='adding-a-server'><a name="GUID-FD398AD7-F078-4D07-A529-0AC21975452F"/> Adding a Server</h1>
+        <h1 id='about-this-guide'><a name="GUID-C1C0E36F-4C5E-44F5-BB6C-1281B7C9ACDC"/> About This Guide</h1>
+<p>This document provides reference information for the REST API requests that you can send to FODIM RESTful API. This document is intended for the technical personnel who customize and deploy this optimized solution according to the requirements of the end customer.</p>
+<h1 id='introduction-to-framework-for-open-distributed-manageability'><a name="GUID-097D329B-7B27-4682-B24B-0C869A8D6109"/> Introduction to Framework for Open Distributed Manageability</h1>
+<p>The FODIM (Framework for Open Distributed Manageability) RESTful API for HPE FODIM is a programming interface enabling management of HPE Telco NFV infrastructure. 
+FODIM combines with Redfish aggregation function to allow northbound clients to interact with the system and manage the southbound infrastructure using Redfish compliant APIs.</p>
+
+<p>With modern scripting languages, you can easily write simple REST clients for RESTful APIs.</p>
+<h1 id='fodim-logical-architecture'><a name="GUID-34228414-88DA-4989-96EE-413E0B8827BE"/> FODIM logical architecture</h1>
+<p>The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.</p>
+
+<p><img src="images/GUID-80B6D875-3C75-47BB-8CC1-A7426CCBC145-high.png" alt="Guid 80b6d875 3c75 47bb 8cc1 a7426ccbc145 high" /> </p>
+<h1 id='list-of-available-apis'><a name="GUID-3F3347E9-3570-4FFB-B515-BF17D2745CB4"/> List of available APIs</h1>
+<p>FODIM Redfish supports the following APIs:</p>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/odata</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/$metadata</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish/v1/SessionService</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/SessionService/Sessions</td>
+<td>POST, GET</td>
+</tr>
+<tr>
+<td>redfish/v1/SessionService/Sessions/{session id}</td>
+<td>GET, DELETE</td>
+</tr>
+<tr>
+<td>/redfish/v1/AccountService</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/AccountService/Accounts</td>
+<td>POST, GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/AccountService/Accounts/{Account id}</td>
+<td>GET, DELETE, PATCH</td>
+</tr>
+<tr>
+<td>/redfish/v1/AccountService/PrivilegeRegistry</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/AccountService/Roles</td>
+<td>POST, GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/AccountService/Roles/{Roles id}</td>
+<td>GET, DELETE, PATCH</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish/v1/AggregationService/Actions/AggregationService.Add</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>/redfish/v1/AggregationService/Actions/AggregationService.Remove</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>/redfish/v1/AggregationService/Actions/AggregationService.Reset</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish/v1/Systems</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/Memory</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/MemoryDomains</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/NetworkInterfaces</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/EthernetInterfaces</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/bios</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/SecureBoot</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/Storage</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/Processors</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/Memory/{MemoryId}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/EthernetInterfaces/{Id}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems/{ComputerSystemId}/Processors/{Id}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Chassis</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Chassis/{ComputerSystemId}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Chassis/{ComputerSystemId}/Thermal</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Chassis/{ComputerSystemId}/NetworkAdapters</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Chassis/{ComputerSystemId}/Power</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Systems?filter={searchKeys}%20{conditionKeys}%20{value}</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish/v1/EventService/Subscriptions</td>
+<td>POST</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish/v1/Fabrics</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Fabrics/{fabricID}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Fabrics/{fabricID}/Switches</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Fabrics/{fabricID}/Switches/{switchID}</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Fabrics/{fabricID}/Switches/{switchID}/Ports<br></td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/Fabrics/{fabricID} /Switches/{switchID}/Ports/{portid}<br></td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/redfish/v1/TaskService</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/TaskService/Tasks</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>/redfish/v1/TaskService/Tasks/{TaskID}</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>API URI</th>
+<th>Operation Applicable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/taskmon/{TaskID}</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+NOTE:
+
+<ComputerSystemId\> is ORCA specified unique id of the server. It is represented as "UUID:<n\>" in FODIM \( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
+
+</blockquote>
+<h1 id='http-request-methods-responses-and-error-codes-for-fodim-rest-api'><a name="GUID-68797EFE-178C-48A6-9ED1-47D35A1233C5"/> HTTP Request Methods, Responses, and Error Codes for FODIM REST API</h1>
+<p>Following are the Redfish defined HTTP methods that you can use to implement various actions:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Request Methods</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>GET</code> [Read Requests]</td>
+<td>Use this method to request a representation of a specified resource (single resource or collection).</td>
+</tr>
+<tr>
+<td><code>PATCH</code> [Update]</td>
+<td>Use this method to apply partial modifications to a resource.</td>
+</tr>
+<tr>
+<td><code>PUT</code> [Replace]</td>
+<td>Use this method to complete replace a resource. Any properties omitted from the body of the request are reset to their default value.</td>
+</tr>
+<tr>
+<td><code>POST</code> [Create] [Actions]</td>
+<td>Use this method to create a new resource. Submit this request to the resource collection to which you want to add the new resource. You can also use this method to initiate operations on an object.</td>
+</tr>
+<tr>
+<td><code>DELETE</code> [Delete]</td>
+<td>Use this method to delete a resource.</td>
+</tr>
+</tbody></table>
+
+<p>FODIM Redfish supports the following responses:</p>
+
+<table><thead>
+<tr>
+<th>Responses</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Metadata responses</td>
+<td>Describes the resources and types exposed by the service to generic clients.</td>
+</tr>
+<tr>
+<td>Resource responses</td>
+<td>Response in JSON format for an individual resource.</td>
+</tr>
+<tr>
+<td>Resource collection responses</td>
+<td>Response in JSON format for a collection of a resources.</td>
+</tr>
+<tr>
+<td>Error responses</td>
+<td>In case of an HTTP error, a high level JSON response is provided with additional information</td>
+</tr>
+</tbody></table>
+
+<p>Following are the HTTP Status codes with their descriptions:</p>
+
+<table><thead>
+<tr>
+<th>Status Code<br></th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200 OK</td>
+<td>Successful completion of the request with representation in the body</td>
+</tr>
+<tr>
+<td>201 Created</td>
+<td>A new resource is successfully created with the Location header set to well-defined URI for the newly created resource. The response body includes the representation of the newly created resource.</td>
+</tr>
+<tr>
+<td>202 Accepted</td>
+<td>The request has been accepted for processing but not processed. The Location header is set to URI of a task monitor that can be queried later for the status of the operation.</td>
+</tr>
+<tr>
+<td>204 No content</td>
+<td>The request was a success but no content was returned in the body of the response.</td>
+</tr>
+<tr>
+<td>207 Multi-Status</td>
+<td>Information about multiple resources</td>
+</tr>
+<tr>
+<td>301 Moved Permanently</td>
+<td>The requested resource resides in a different URI given by the Location headers.</td>
+</tr>
+<tr>
+<td>302 Found</td>
+<td>The requested resource temporarily resides in a different URI.</td>
+</tr>
+<tr>
+<td>304 Not Modified</td>
+<td>When the service has performed conditional GET request but the resource content has not changed.</td>
+</tr>
+<tr>
+<td>400 Bad Request</td>
+<td>The request could not be performed due to missing or invalid information. An extended error message is returned in the response body.</td>
+</tr>
+<tr>
+<td>401 Unauthorized</td>
+<td>Missing or invalid authentication credentials included with a request.</td>
+</tr>
+<tr>
+<td>403 Forbidden</td>
+<td>The server recognizes the credentials to be not having the necessary authorization to perform the operation.</td>
+</tr>
+<tr>
+<td>404 Not Found</td>
+<td>The request specified the URI of a non-existing resource.</td>
+</tr>
+<tr>
+<td>405 Method Not Allowed</td>
+<td>When the HTTP verb specified in the request (GET, PATCH, DELETE, and so on) is not supported for a particular request URI. The response includes &quot;Allow&quot; header that lists the supported methods.</td>
+</tr>
+<tr>
+<td>406 Not Acceptable</td>
+<td>When the resource fails to generate a response that matches the media types specified in the Accept header.</td>
+</tr>
+<tr>
+<td>409 Conflict</td>
+<td>A creation or an update cannot be completed because it would conflict with the current state of the resources supported by the platform.</td>
+</tr>
+<tr>
+<td>410 Gone</td>
+<td>When the requested resource is no longer available in the server and there is no forwarding address available as well. This condition is expected to be considered permanent. Clients with hyperlink editing capabilities SHOULD delete references to the Request-URI after user approval. If the server does not know, or has no facility to determine, whether or not the condition is permanent, the status code 404 (Not Found) SHOULD be used instead. This response is cacheable unless indicated otherwise.</td>
+</tr>
+<tr>
+<td>411 Length Required</td>
+<td>When the content of the length is not specified using the Content-Length header.</td>
+</tr>
+<tr>
+<td>412 Precondition Failed</td>
+<td>When pre-condition (OData-version) checks fail.</td>
+</tr>
+<tr>
+<td>415 Unsupported Media Type</td>
+<td>When the Content-type specified for the body does not match.</td>
+</tr>
+<tr>
+<td>428 Precondition Required</td>
+<td>When the request does not provide the pre-condition such as an If-Match</td>
+</tr>
+<tr>
+<td>431 Request Header Field Too Large</td>
+<td>When the individual header or all the header fields in a request are too large, the server does not fulfils the request.</td>
+</tr>
+<tr>
+<td>500 Internal Server Error</td>
+<td>When the server encounters and unexpected condition that prevents it from fulfilling the request.</td>
+</tr>
+<tr>
+<td>501 Not Implemented</td>
+<td>When the server does not recognize or supports the method for any resource.</td>
+</tr>
+<tr>
+<td>503 Service Unavailable</td>
+<td>When the server is currently unable to service the request due to temporary overloading or maintenance.</td>
+</tr>
+<tr>
+<td>507 Insufficient Storage</td>
+<td>When the size of the response is too big for the server to build the response.</td>
+</tr>
+</tbody></table>
+<h1 id='authenticating-requests-when-using-the-fodim-rest-apis'><a name="GUID-63D85EBC-2982-494F-8B65-2DEDED0536A8"/> Authenticating requests when using the FODIM REST APIs</h1>
+<p>Any one of the following authentication methods must be implemented to authenticate requests to the FODIM Redfish services:</p>
+
+<ul>
+<li><p><strong>HTTP BASIC authentication</strong> </p>
+
+<p>You can implement HTTP BASIC authentication by providing base64 encoded user name and password in an HTTP <code>Authorization: Basic</code> header ( Basic Auth).</p></li>
+<li><p><strong>Redfish session login authentication</strong> </p>
+
+<p>You can implement Redfish Session Login Authentication by creating a Redfish login session through session management interface. To learn more about a session, See <a href="#">Creating a session</a> section.</p>
+
+<p>Every session that is created has an authentication token called <strong>X-AUTH-TOKEN</strong> associated with it.</p>
+
+<p>To authenticate subsequent requests, provide this token in the <code>X-AUTH-TOKEN</code> request header.</p></li>
+</ul>
+
+<blockquote>
+    NOTE:
+
+    An **X-AUTH-TOKEN** is valid and a session is open only for 30 minutes, unless the user continues to send requests to a Redfish service using this token.
+
+    An idle session is automatically terminated after the timeout interval.
+
+</blockquote>
+
+<blockquote>
+NOTE:
+
+-   When Basic Auth is used, creating a session is not required.
+
+-   You must authenticate all write requests\(POST, PATCH, and DELETE \) on the resources except for The POST operation on the Sessions service/object needed for authentication.
+
+-   You must authenticate all resources except for:
+
+-   The service root
+
+-   The $metadata
+
+-   The OData Service Document
+
+-   The Redfish version
+
+
+</blockquote>
+<h1 id='creating-and-managing-sessions'><a name="GUID-A5EBA130-1939-4467-955A-5FA070E5A488"/> Creating and managing sessions</h1>
+<p>A session represents a window of user&#39;s login with a Redfish service and contains details about the user and the user activity. You can run multiple sessions simultaneously on FODIM.</p>
+
+<p>FODIM offers Redfish SessionService interface for managing sessions and exposes APIs to achieve the following:</p>
+
+<ul>
+<li><p>Fetching the SessionService root</p></li>
+<li><p>Creating a session</p></li>
+<li><p>Listing active sessions</p></li>
+<li><p>Deleting a session</p></li>
+</ul>
+<h2 id='supported-apis'><a name="SECTION_7D1A74F40AF24CC58CA9E4D4C7931EEC"/> Supported APIs</h2>
+<ul>
+<li><p><code>/redfish/v1/SessionService</code> </p></li>
+<li><p><code>/redfish/v1/SessionService/Sessions</code> </p></li>
+<li><p><code>/redfish/v1/SessionService/Sessions/{session id}</code> </p></li>
+</ul>
+<h1 id='configuring-roles-and-privileges-for-a-user'><a name="GUID-2DAB4A03-6714-4738-822F-6492D3A384F4"/> Configuring roles and privileges for a user</h1>
+<p>FODIM supports role-based authorization of requests - the roles and privileges control which users have what access to resources.</p>
+<h2 id='roles'><a name="SECTION_BBA6081A64414384AF54FA4A8D24524D"/> Roles</h2>
+<p>A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.</p>
+
+<p>See <a href="#">Creating a role</a>.</p>
+
+<p>With FODIM, there are two kinds of defined roles:</p>
+
+<ul>
+<li><p><strong>Redfish pre-defined roles</strong> </p>
+
+<p>Redfish pre-defined roles come with a pre-defined set of privileges. Following are the Redfish pre-defined roles:</p>
+
+<ul>
+<li>  Administrator</li>
+<li>  Operator</li>
+<li>  ReadOnly</li>
+</ul></li>
+<li><p><strong>OEM(Original Equipment Manufacturer) roles</strong> </p>
+
+<p>OEM roles are the custom roles that you can create and assign to a user. Following are the available OEM roles:</p>
+
+<ul>
+<li>   admin
+:   The admin is an OEM pre-defined role that has all the privileges needed to manage all services. The admin can perform any actions such as adding and removing equipments, adding or removing users or privileges, and so on.
+
+<ul>
+<li>   Client
+:   The client is an OEM role that uses the northbound APIs to manage the southbound infrastructure.</li>
+<li>   Monitor
+:   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<blockquote>
+NOTE:
+
+-   Every user is assigned one role at the time of user account creation; ensure that the role to be assigned to a user is created before creating a user account.
+
+-   The Redfish pre-defined roles can include OEM privileges.
+
+-   OEMs can create custom roles and assign the same to a user at the time of user creation.
+
+
+</blockquote>
+<h2 id='privileges'><a name="SECTION_35D1CE274D6F497481A82BC84189C6F8"/> Privileges</h2>
+<p>A privilege is a permission to perform an operation or a set of operations within a defined management domain. There are Redfish specified set of privileges as well as OEM-defined privileges.</p>
+
+<p>The following privileges can be assigned to any user in FODIM:</p>
+
+<ul>
+<li><p>ConfigureComponents
+:   Users with this privilege can configure components managed by the services in FODIM Redfish API.</p>
+
+<ul>
+<li>   ConfigureManager
+:   Users with this privilege can configure manager resources.</li>
+<li>   ConfigureSelf
+:   Users with this privilege can change the password for their account.</li>
+<li>   ConfigureUsers
+:   Users with this privilege can configure users and their accounts. This privilege is assigned to an administrator.</li>
+<li>   Login
+:   Users with this privilege can log into the service and read the resources.</li>
+</ul></li>
+</ul>
+
+<blockquote>
+NOTE:
+
+The privileges set for a Redfish pre-defined role cannot be modified.
+
+</blockquote>
+<h2 id='mapping-of-privileges-to-roles-in-fodim'><a name="SECTION_5FEE4116689947DDA3F54DAE14F8BCCA"/> Mapping of privileges to roles in FODIM</h2>
+<table><thead>
+<tr>
+<th>Roles</th>
+<th>Assigned privileges</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Administrator (Redfish pre-defined)</td>
+<td>-   Login<br>-   ConfigureManager<br>-   ConfigureUsers<br>-   ConfigureComponents<br>-   ConfigureSelf<br></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Operator (Redfish pre-defined)</td>
+<td>-   Login<br>-   ConfigureComponents<br>-   ConfigureSelf<br></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ReadOnly (Redfish pre-defined)</td>
+<td>-   Login<br>-   ConfigureSelf<br></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>admin (OEM)</td>
+<td></td>
+</tr>
+<tr>
+<td>Client (OEM)</td>
+<td></td>
+</tr>
+<tr>
+<td>Monitor (OEM)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='creating-and-managing-user-accounts'><a name="GUID-5AC7D07F-6843-4089-9A6F-2B2F760FDE7A"/> Creating and managing user accounts</h1>
+<p>FODIM allows users to have accounts to configure their actions and restrictions.</p>
+
+<p>A user account contains the following details:</p>
+
+<ul>
+<li><p>User name</p></li>
+<li><p>Password</p></li>
+<li><p>A role assigned to the user.</p></li>
+</ul>
+
+<p>It exposes Redfish AccountsService APIs to manage user accounts. Use these endpoints to perform the following operations:</p>
+
+<ul>
+<li><p>Creating, modifying, and deleting account details.</p></li>
+<li><p>Fetching account details.</p></li>
+</ul>
+
+<p><strong>Supported APIs</strong>:</p>
+
+<ul>
+<li><p><code>/redfish/v1/AccountService</code> </p></li>
+<li><p><code>/redfish/v1/AccountService/Accounts</code> </p></li>
+<li><p><code>/redfish/v1/AccountService/Accounts/{Account Id}</code> </p></li>
+<li><p><code>/redfish/v1/AccountService/Roles</code> </p></li>
+<li><p><code>/redfish/v1/AccountService/Roles/{Role id}</code> </p></li>
+</ul>
+<h2 id='authentication'><a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"/> Authentication</h2>
+<p>X-AUTH-TOKEN authentication or Basic authentication.</p>
+<h1 id='aggregating-and-managing-southbound-infrastructure-use-case-for-server-aggregation'><a name="GUID-FCAF2009-0DB1-4AC6-9439-BD6776C59AC3"/> Aggregating and managing southbound infrastructure (use case for server aggregation)</h1>
+<p>One of the state-of-the-art features of FODIM is that it allows users to add and group southbound infrastructure(servers, storage, or fabrics) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:</p>
+
+<ul>
+<li><p>Adding a resource in the inventory to manage.</p></li>
+<li><p>Resetting one or more resources.</p></li>
+<li><p>Changing the boot path of one or more resources to default settings.</p></li>
+<li><p>Removing a resource from the inventory which is no longer managed.</p></li>
+</ul>
+
+<p>Using these endpoints, you can add or remove only one resource at a time. You can group the resources into one collection and perform actions such as reset and setdefaultbootorder in combination on that group.</p>
+
+<p>The next sections in this chapter contain the use case for server aggregation.</p>
+<h2 id='prerequisites'><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"/> Prerequisites</h2>
+<ul>
+<li>  To access Redfish AggregationService endpoints, ensure that the user has <code>ConfigureComponents</code> privilege.</li>
+</ul>
+<h2 id='authentication-2'><a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"/> Authentication</h2>
+<p>X-AUTH-TOKEN authentication or Basic authentication.</p>
+<h2 id='supported-endpoints'><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints</h2>
+<ul>
+<li><p><code>/redfish/v1/AggregatorService/Actions/AggregationService.Add</code> </p></li>
+<li><p><code>/redfish/v1/AggregatorService/Actions/AggregationService.Remove</code> </p></li>
+<li><p><code>/redfish/v1/AggregationService/Actions/AggregationService.Reset</code> </p></li>
+<li><p><code>/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder</code> </p></li>
+</ul>
+<h1 id='adding-a-server'><a name="GUID-FD398AD7-F078-4D07-A529-0AC21975452F"/> Adding a Server</h1>
 <p>|<strong>Method</strong> |<strong>POST</strong> |
 |<strong>URI</strong> |<code>/redfish/v1/AggregatorService/Actions/AggregationService.Add</code> |
 |<strong>Returns</strong> |Location URI of the task monitor associated with this operation in the response header.|
 |<strong>Response Code</strong> |202|</p>
 <h2 id='description'><a name="SECTION_DF9D801BAD2C4FCB8868F370BECEF031"/> Description</h2>
-<p>This action adds a single server in the inventory. On success, ORCA specified Computer System Id is assigned to the added server.</p>
+<p>This action adds a single server in the inventory. 
+On success, ORCA specified Computer System Id is assigned to the added server.</p>
 
 <p>To poll this action for its completion, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.</p>
 
@@ -330,72 +1100,83 @@ status:202
 x-frame-options:sameorigin
 </code></pre><h2 id='sample-response-body'><a name="SECTION_9451CFC577B74AC2B3A435EC191F5898"/> Sample Response body</h2>
 <p>None</p>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+<h1 id='managing-tasks'><a name="GUID-BF1C7CEB-B101-4BFC-930A-8A582AC478F6"/> Managing tasks</h1>
+<p>A task represents an operation that takes more time than a user typically wants to wait and is carried out asynchronously.</p>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>An example of a task is resetting an aggregate of servers. Resetting all the servers in a group is a time-consuming operation; the user waiting for the result would be blocked from performing other operations. FODIM creates Redfish tasks for such long-duration operations and offers an interface for the users to manage them while performing other operations.</p>
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
+<p>FODIM exposes Redfish TaskService APIs and Task monitor API. Use these endpoints to manage and poll tasks for their completion.</p>
+<h2 id='prerequisites-2'><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"/> Prerequisites</h2>
+<ul>
+<li>  Ensure that the user has <code>Login</code> privilege at the minimum.</li>
+</ul>
+<h2 id='authentication-3'><a name="SECTION_CDE2B668C2A248338F49149628D7B304"/> Authentication</h2>
+<p>X-AUTH-TOKEN authentication or Basic authentication.</p>
+<h2 id='supported-endpoints-2'><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints</h2>
+<ul>
+<li><p><code>/redfish/v1/TaskService</code> </p></li>
+<li><p><code>/redfish/v1/TaskService/Tasks</code> </p></li>
+<li><p><code>/redfish/v1/TaskService/Tasks/{TaskID}</code> </p></li>
+<li><p><code>/taskmon/{TaskID}</code> </p>
+<h1 id='subscribing-northbound-clients-to-southbound-events'><a name="GUID-3E0F2F80-1CEC-4182-85B8-3B9533874E44"/> Subscribing northbound clients to southbound events</h1></li>
+</ul>
+
+<p>FODIM offers an eventing interface that allows northbound clients to interact and receive notifications such as alarms from southbound equipment. It exposes Redfish EventService APIs as an interface for managing events.</p>
+
+<p>Events are messages provided by the service to asynchronously notify the client of some significant state change or error condition, usually of a time critical nature.</p>
+
+<p>Use these APIs to subscribe northbound clients to southbound events by creating a subscription entry in the service.</p>
+<h2 id='prerequisites-3'><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"/> Prerequisites</h2>
+<ul>
+<li><p>Ensure that Kafka is installed.</p></li>
+<li><p>Ensure that the user has an <code>administrator</code> role or a <code>client</code> role.</p></li>
+</ul>
+<h2 id='authentication-4'><a name="SECTION_CDE2B668C2A248338F49149628D7B304"/> Authentication</h2>
+<p>X-AUTH-TOKEN authentication or Basic authentication.</p>
+<h2 id='supported-endpoints-3'><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints</h2>
+<ul>
+<li><p><code>/redfish/v1/EventService/Subscriptions</code> </p></li>
+<li><p><code>redfish/v1/EventService</code> </p></li>
+</ul>
+<h1 id='discovering-and-manipulating-southbound-infrastructure'><a name="GUID-D6EAF208-051A-4A34-87BC-9F40423CFA67"/> Discovering and manipulating southbound infrastructure</h1>
+<p>FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.</p>
+
+<p>Use these endpoints to discover information on all the telemetry you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.</p>
+<h2 id='prerequisites-4'><a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"/> Prerequisites</h2>
+<ul>
+<li>  Ensure that the user has a minimum privilege of &quot;Login&quot;.</li>
+</ul>
+<h2 id='authentication-5'><a name="SECTION_CDE2B668C2A248338F49149628D7B304"/> Authentication</h2>
+<p>X-AUTH-TOKEN authentication or Basic authentication.</p>
+<h2 id='supported-endpoints-4'><a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints</h2>
+<ul>
+<li><p><code>/redfish/v1/Systems</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/Memory</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/MemoryDomains</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/EthernetInterfaces</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/bios</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/SecureBoot</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/Storage</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/LogServices</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/Processors</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/Memory/proc1dimm1</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/EthernetInterfaces/1</code> </p></li>
+<li><p><code>/redfish/v1/Systems/&lt;ComputerSystemId&gt;/Processors/1</code> </p></li>
+<li><p><code>/redfish/v1/Chassis</code> </p></li>
+<li><p><code>/redfish/v1/Chassis/{ComputerSystemId}</code> </p></li>
+<li><p><code>/redfish/v1/Chassis/&lt;ComputerSystemId&gt;/NetworkAdapters</code> </p></li>
+<li><p><code>/redfish/v1/Chassis/&lt;ComputerSystemId&gt;/Thermal</code> </p></li>
+<li><p><code>/redfish/v1/Chassis/&lt;ComputerSystemId&gt;/Power</code> </p></li>
+<li><p><code>/redfish/v1/Systems?filter=&lt;searchKeys&gt;%20&lt;conditionKeys&gt;%20&lt;value&gt;</code> </p></li>
+<li><p><code>/redfish/v1/Systems/{ComputerSystemId}/Actions/ComputerSystem.Reset</code> </p></li>
+<li><p><code>/redfish/v1/Systems/{ComputerSystemId}/Actions/ComputerSystem.SetDefaultBootOrder</code> </p></li>
+</ul>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="curl">curl</a>
           </div>
       </div>
     </div>
