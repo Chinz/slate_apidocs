@@ -228,7 +228,7 @@
             <a href="#fodim-logical-architecture" class="toc-h1 toc-link" data-title="FODIM logical architecture">FODIM logical architecture</a>
           </li>
           <li>
-            <a href="#list-of-available-apis" class="toc-h1 toc-link" data-title="List of available APIs">List of available APIs</a>
+            <a href="#list-of-supported-apis" class="toc-h1 toc-link" data-title="List of supported APIs">List of supported APIs</a>
           </li>
           <li>
             <a href="#http-request-methods-responses-and-error-codes-for-fodim-rest-api" class="toc-h1 toc-link" data-title="HTTP Request Methods, Responses, and Error Codes for FODIM REST API">HTTP Request Methods, Responses, and Error Codes for FODIM REST API</a>
@@ -368,12 +368,12 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <p>With modern scripting languages, you can easily write simple REST clients for RESTful APIs.</p>
 <h1 id='fodim-logical-architecture'>FODIM logical architecture</h1>
 <p>The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.</p>
-<h1 id='list-of-available-apis'>List of available APIs</h1>
+<h1 id='list-of-supported-apis'>List of supported APIs</h1>
 <p>FODIM Redfish supports the following APIs:</p>
 
 <table><thead>
 <tr>
-<th>API URI</th>
+<th>URI</th>
 <th>Operation Applicable</th>
 </tr>
 </thead><tbody>
@@ -393,14 +393,6 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>/redfish/v1/$metadata</td>
 <td>GET</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/redfish/v1/SessionService</td>
 <td>GET</td>
@@ -437,14 +429,6 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>/redfish/v1/AccountService/Roles/{Roles id}</td>
 <td>GET, DELETE, PATCH</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/redfish/v1/AggregationService/Actions/AggregationService.Add</td>
 <td>POST</td>
@@ -461,14 +445,6 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder</td>
 <td>POST</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/redfish/v1/Systems</td>
 <td>GET</td>
@@ -545,26 +521,10 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>/redfish/v1/Systems?filter={searchKeys}%20{conditionKeys}%20{value}</td>
 <td>GET</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/redfish/v1/EventService/Subscriptions</td>
 <td>POST</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/redfish/v1/Fabrics</td>
 <td>GET</td>
@@ -589,14 +549,6 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>/redfish/v1/Fabrics/{fabricID} /Switches/{switchID}/Ports/{portid}<br></td>
 <td>GET</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/redfish/v1/TaskService</td>
 <td>GET</td>
@@ -609,14 +561,6 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>/redfish/v1/TaskService/Tasks/{TaskID}</td>
 <td>GET</td>
 </tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>API URI</th>
-<th>Operation Applicable</th>
-</tr>
-</thead><tbody>
 <tr>
 <td>/taskmon/{TaskID}</td>
 <td>GET</td>
@@ -625,7 +569,7 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 
 <p>NOTE:</p>
 
-<p><ComputerSystemId\> is ORCA specified unique id of the server. It is represented as &quot;UUID:<n\>&quot; in FODIM ( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 )</p>
+<p>*ComputerSystemId is ORCA specified unique id of the server. It is represented as &quot;UUID:<n\>&quot; in FODIM ( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 )</p>
 <h1 id='http-request-methods-responses-and-error-codes-for-fodim-rest-api'>HTTP Request Methods, Responses, and Error Codes for FODIM REST API</h1>
 <p>Following are the Redfish defined HTTP methods that you can use to implement various actions:</p>
 
@@ -1008,10 +952,25 @@ An <strong>X-AUTH-TOKEN</strong> is valid and a session is open only for 30 minu
 <li><p><code>/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder</code></p></li>
 </ul>
 <h1 id='adding-a-server'>Adding a Server</h1>
-<p>|<strong>Method</strong> |<strong>POST</strong> |
-|<strong>URI</strong> |<code>/redfish/v1/AggregatorService/Actions/AggregationService.Add</code> |
-|<strong>Returns</strong> |Location URI of the task monitor associated with this operation in the response header.|
-|<strong>Response Code</strong> |202|</p>
+<table><thead>
+<tr>
+<th>Method</th>
+<th>POST</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code>/redfish/v1/AggregatorService/Actions/AggregationService.Add</code></td>
+</tr>
+<tr>
+<td>Returns</td>
+<td>Location URI of the task monitor associated with this operation in the response header.</td>
+</tr>
+<tr>
+<td>Response Code</td>
+<td>202</td>
+</tr>
+</tbody></table>
 <h2 id='description'>Description</h2>
 <p>This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.</p>
