@@ -9,7 +9,7 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-   - Aggregating_resources
+   - _aggregating_resources
 
 search: true
 ---
