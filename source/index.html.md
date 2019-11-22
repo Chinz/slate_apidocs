@@ -9,11 +9,11 @@ toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - _aggregatingResources
+  
 
 search: true
 ---
-# <a name="GUID-C1C0E36F-4C5E-44F5-BB6C-1281B7C9ACDC"/> About This Guide
+# About This Guide
 
 This document provides reference
 information for the REST API requests
@@ -24,23 +24,22 @@ deploy this optimized solution according
 to the requirements of the end customer.
 
 
-# <a name="GUID-097D329B-7B27-4682-B24B-0C869A8D6109"/> Introduction to Framework for Open Distributed Manageability
+# Introduction to Framework for Open Distributed Manageability
 
 The FODIM \(Framework for Open Distributed Manageability\) RESTful API for HPE FODIM is a programming interface enabling management of HPE Telco NFV infrastructure.
 FODIM combines with Redfish aggregation function to allow northbound clients to interact with the system and manage the southbound infrastructure using Redfish compliant APIs.
 
 With modern scripting languages, you can easily write simple REST clients for RESTful APIs.
 
-# <a name="GUID-34228414-88DA-4989-96EE-413E0B8827BE"/> FODIM logical architecture
+#  FODIM logical architecture
 
 The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.
 
-![](GUID-80B6D875-3C75-47BB-8CC1-A7426CCBC145-high.png)
 
 
 
 
-# <a name="GUID-3F3347E9-3570-4FFB-B515-BF17D2745CB4"/> List of available APIs
+#  List of available APIs
 
 FODIM Redfish supports the following APIs:
 
@@ -115,13 +114,13 @@ FODIM Redfish supports the following APIs:
 |-------|--------------------|
 |/taskmon/\{TaskID\}|GET|
 
-<blockquote>
+
 NOTE:
 
 <ComputerSystemId\> is ORCA specified unique id of the server. It is represented as "UUID:<n\>" in FODIM \( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
 
-</blockquote>
-# <a name="GUID-68797EFE-178C-48A6-9ED1-47D35A1233C5"/> HTTP Request Methods, Responses, and Error Codes for FODIM REST API
+
+#  HTTP Request Methods, Responses, and Error Codes for FODIM REST API
 
 Following are the Redfish defined HTTP methods that you can use to implement various actions:
 
@@ -174,7 +173,7 @@ Following are the HTTP Status codes with their descriptions:
 
 
 
-# <a name="GUID-63D85EBC-2982-494F-8B65-2DEDED0536A8"/> Authenticating requests when using the FODIM REST APIs
+#  Authenticating requests when using the FODIM REST APIs
 
 Any one of the following authentication methods must be implemented to authenticate requests to the FODIM Redfish services:
 
@@ -190,18 +189,14 @@ Any one of the following authentication methods must be implemented to authentic
 
     To authenticate subsequent requests, provide this token in the `X-AUTH-TOKEN` request header.
 
-<blockquote>
-    NOTE:
 
+    NOTE:
     An **X-AUTH-TOKEN** is valid and a session is open only for 30 minutes, unless the user continues to send requests to a Redfish service using this token.
 
     An idle session is automatically terminated after the timeout interval.
 
-</blockquote>
 
 
-
-<blockquote>
 NOTE:
 
 -   When Basic Auth is used, creating a session is not required.
@@ -219,8 +214,8 @@ NOTE:
 -   The Redfish version
 
 
-</blockquote>
-# <a name="GUID-A5EBA130-1939-4467-955A-5FA070E5A488"/> Creating and managing sessions
+
+# Creating and managing sessions
 
 A session represents a window of user's login with a Redfish service and contains details about the user and the user activity. You can run multiple sessions simultaneously on FODIM.
 
@@ -235,7 +230,7 @@ FODIM offers Redfish SessionService interface for managing sessions and exposes 
 -   Deleting a session
 
 
-## <a name="SECTION_7D1A74F40AF24CC58CA9E4D4C7931EEC"/> Supported APIs
+##  Supported APIs
 
 -   `/redfish/v1/SessionService`
 
@@ -246,11 +241,11 @@ FODIM offers Redfish SessionService interface for managing sessions and exposes 
 
 
 
-# <a name="GUID-2DAB4A03-6714-4738-822F-6492D3A384F4"/> Configuring roles and privileges for a user
+#  Configuring roles and privileges for a user
 
 FODIM supports role-based authorization of requests - the roles and privileges control which users have what access to resources.
 
-## <a name="SECTION_BBA6081A64414384AF54FA4A8D24524D"/> Roles
+##  Roles
 
 A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.
 
@@ -282,7 +277,7 @@ With FODIM, there are two kinds of defined roles:
  :   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.
 
 
-<blockquote>
+
 NOTE:
 
 -   Every user is assigned one role at the time of user account creation; ensure that the role to be assigned to a user is created before creating a user account.
@@ -292,7 +287,7 @@ NOTE:
 -   OEMs can create custom roles and assign the same to a user at the time of user creation.
 
 
-</blockquote>
+
 ## <a name="SECTION_35D1CE274D6F497481A82BC84189C6F8"/> Privileges
 
 A privilege is a permission to perform an operation or a set of operations within a defined management domain. There are Redfish specified set of privileges as well as OEM-defined privileges.
@@ -315,13 +310,13 @@ The following privileges can be assigned to any user in FODIM:
  :   Users with this privilege can log into the service and read the resources.
 
 
-<blockquote>
+
 NOTE:
 
 The privileges set for a Redfish pre-defined role cannot be modified.
 
-</blockquote>
-## <a name="SECTION_5FEE4116689947DDA3F54DAE14F8BCCA"/> Mapping of privileges to roles in FODIM
+
+##  Mapping of privileges to roles in FODIM
 
 |Roles|Assigned privileges|
 |-----|-------------------|
@@ -335,7 +330,7 @@ The privileges set for a Redfish pre-defined role cannot be modified.
 |Client \(OEM\)| |
 |Monitor \(OEM\)| |
 
-# <a name="GUID-5AC7D07F-6843-4089-9A6F-2B2F760FDE7A"/> Creating and managing user accounts
+#  Creating and managing user accounts
 
 FODIM allows users to have accounts to configure their actions and restrictions.
 
@@ -368,13 +363,13 @@ It exposes Redfish AccountsService APIs to manage user accounts. Use these endpo
 -   `/redfish/v1/AccountService/Roles/{Role id}`
 
 
-## <a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"/> Authentication
+##  Authentication
 
 X-AUTH-TOKEN authentication or Basic authentication.
 
 
 
-# <a name="GUID-FCAF2009-0DB1-4AC6-9439-BD6776C59AC3"/> Aggregating and managing southbound infrastructure \(use case for server aggregation\)
+#  Aggregating and managing southbound infrastructure \(use case for server aggregation\)
 
 One of the state-of-the-art features of FODIM is that it allows users to add and group southbound infrastructure\(servers, storage, or fabrics\) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:
 
@@ -391,16 +386,16 @@ Using these endpoints, you can add or remove only one resource at a time. You ca
 
 The next sections in this chapter contain the use case for server aggregation.
 
-## <a name="SECTION_BE4F7B8CAC104DCEBF73E66F58CAF162"/> Prerequisites
+##  Prerequisites
 
 -   To access Redfish AggregationService endpoints, ensure that the user has `ConfigureComponents` privilege.
 
 
-## <a name="SECTION_976BC1B372A544E3B3FBB47DD6A597F8"/> Authentication
+##  Authentication
 
 X-AUTH-TOKEN authentication or Basic authentication.
 
-## <a name="SECTION_57EC3823E6E34F5C9EC3EC894C834122"/> Supported Endpoints
+##  Supported Endpoints
 
 -   `/redfish/v1/AggregatorService/Actions/AggregationService.Add`
 
