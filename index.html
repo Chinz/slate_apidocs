@@ -223,9 +223,22 @@
           </li>
           <li>
             <a href="#introduction-to-framework-for-open-distributed-manageability" class="toc-h1 toc-link" data-title="Introduction to Framework for Open Distributed Manageability">Introduction to Framework for Open Distributed Manageability</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#key-benefits-of-fodim" class="toc-h2 toc-link" data-title="Key benefits of FODIM">Key benefits of FODIM</a>
+                  </li>
+                  <li>
+                    <a href="#fodim-logical-architecture" class="toc-h2 toc-link" data-title="FODIM logical architecture">FODIM logical architecture</a>
+                  </li>
+              </ul>
           </li>
           <li>
-            <a href="#fodim-logical-architecture" class="toc-h1 toc-link" data-title="FODIM logical architecture">FODIM logical architecture</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting started">Getting started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#using-the-fodim-restful-api" class="toc-h2 toc-link" data-title="Using the FODIM RESTful API">Using the FODIM RESTful API</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#list-of-supported-apis" class="toc-h1 toc-link" data-title="List of supported APIs">List of supported APIs</a>
@@ -332,7 +345,7 @@
               </ul>
           </li>
           <li>
-            <a href="#discovering-and-manipulating-southbound-infrastructure" class="toc-h1 toc-link" data-title="Discovering and manipulating southbound infrastructure">Discovering and manipulating southbound infrastructure</a>
+            <a href="#accessing-the-inventory-of-a-managed-southbound-resource" class="toc-h1 toc-link" data-title="Accessing the inventory of a managed southbound resource">Accessing the inventory of a managed southbound resource</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#prerequisites-4" class="toc-h2 toc-link" data-title="Prerequisites">Prerequisites</a>
@@ -354,7 +367,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='about-this-guide'>About This Guide</h1>
-<p>This document provides reference
+<p>This document provides helpful reference
 information for the REST API requests
 that you can send to FODIM RESTful API.
 This document is intended for the
@@ -362,12 +375,36 @@ technical personnel who customize and
 deploy this optimized solution according
 to the requirements of the end customer.</p>
 <h1 id='introduction-to-framework-for-open-distributed-manageability'>Introduction to Framework for Open Distributed Manageability</h1>
-<p>The FODIM (Framework for Open Distributed Manageability) RESTful API for HPE FODIM is a programming interface enabling management of HPE Telco NFV infrastructure.
-FODIM combines with Redfish aggregation function to allow northbound clients to interact with the system and manage the southbound infrastructure using Redfish compliant APIs.</p>
+<p>Managing a multitude of IT infrastructure devices of different make and type has never been easy, especially, when they exist across multiple data centers.
+The FODIM (Framework for Open Distributed Manageability) RESTful API offers a simple and effective solution for IT infrastructure manageability:it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.</p>
 
-<p>With modern scripting languages, you can easily write simple REST clients for RESTful APIs.</p>
-<h1 id='fodim-logical-architecture'>FODIM logical architecture</h1>
+<p>The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.
+It exposes RESTful APIs that are architected as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.</p>
+<h2 id='key-benefits-of-fodim'>Key benefits of FODIM</h2>
+<ul>
+<li>Simplifies lifecycle management of southbound infrastructure: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access to the same. </li>
+<li>Scalable : leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices alike(from stand-alone servers to rack mount and bladed environments to large scale server environments).</li>
+<li>Simplifies interaction of northbound clients with southbound systems : FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.</li>
+</ul>
+<h2 id='fodim-logical-architecture'>FODIM logical architecture</h2>
 <p>The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.</p>
+<h1 id='getting-started'>Getting started</h1><h2 id='using-the-fodim-restful-api'>Using the FODIM RESTful API</h2>
+<p>The FODIM RESTful API is available on version __ or later.</p>
+
+<p>To access the RESTful API, you need an HTTPS-capable client, such as a web browser with a REST Client plugin extension, or a Desktop REST Client application (such as Postman), or cURL (a popular, free command line utility).
+You can also easily write simple REST clients for RESTful APIs using modern scripting languages.</p>
+
+<p>Tip:
+It is good to use a tool, such as cURL or Postman initially to perform requests. Later, you will want to write your own scripting code to do this. </p>
+
+<p>Note:
+The examples shown in this document use cURL to make HTTP reqests.
+Curl is a command line tool which helps you get or send information through URLs using supported protocols(<code>HTTP</code> in the case of FODIM).
+It is available at http://curl.haxx.se/ .
+All the cURL examples will use the following options(flags):
+ - <code>--insecure</code> bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
+   Draft comment: Need clarity here.
+ - <code>-i</code> returns HTTP response headers</p>
 <h1 id='list-of-supported-apis'>List of supported APIs</h1>
 <p>FODIM Redfish supports the following APIs:</p>
 
@@ -402,7 +439,7 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <td>POST, GET</td>
 </tr>
 <tr>
-<td>redfish/v1/SessionService/Sessions/{session id}</td>
+<td>/redfish/v1/SessionService/Sessions/{session id}</td>
 <td>GET, DELETE</td>
 </tr>
 <tr>
@@ -569,7 +606,7 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 
 <p>NOTE:</p>
 
-<p>*ComputerSystemId is ORCA specified unique id of the server. It is represented as &quot;UUID:<n\>&quot; in FODIM ( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 )</p>
+<p>*ComputerSystemId is FODIM specified unique id of the server. It is represented as &quot;{UUID}:{n}&quot; in FODIM ( Example : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 )</p>
 <h1 id='http-request-methods-responses-and-error-codes-for-fodim-rest-api'>HTTP Request Methods, Responses, and Error Codes for FODIM REST API</h1>
 <p>Following are the Redfish defined HTTP methods that you can use to implement various actions:</p>
 
@@ -586,10 +623,6 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 <tr>
 <td><code>PATCH</code> [Update]</td>
 <td>Use this method to apply partial modifications to a resource.</td>
-</tr>
-<tr>
-<td><code>PUT</code> [Replace]</td>
-<td>Use this method to complete replace a resource. Any properties omitted from the body of the request are reset to their default value.</td>
 </tr>
 <tr>
 <td><code>POST</code> [Create] [Actions]</td>
@@ -737,24 +770,26 @@ FODIM combines with Redfish aggregation function to allow northbound clients to 
 </tr>
 </tbody></table>
 <h1 id='authenticating-requests-when-using-the-fodim-rest-apis'>Authenticating requests when using the FODIM REST APIs</h1>
-<p>Any one of the following authentication methods must be implemented to authenticate requests to the FODIM Redfish services:</p>
+<p>Following authentication methods can be implemented to authenticate requests to the FODIM REST API:</p>
 
 <ul>
 <li><p><strong>HTTP BASIC authentication</strong></p>
 
-<p>You can implement HTTP BASIC authentication by providing base64 encoded user name and password in an HTTP <code>Authorization: Basic</code> header ( Basic Auth).</p></li>
+<p>You can implement HTTP BASIC authentication by providing base64 encoded FODIM user name and password in an HTTP <code>Authorization: Basic</code> header ( Basic Auth).</p></li>
 <li><p><strong>Redfish session login authentication</strong></p>
 
-<p>You can implement Redfish Session Login Authentication by creating a Redfish login session through session management interface. To learn more about a session, See <a href="#">Creating a session</a> section.</p>
+<p>You can implement Redfish Session Login Authentication by creating a Redfish login session through session management interface. To learn more about a session, See <a href="#">Creating and managing sessions</a> section.</p>
 
-<p>Every session that is created has an authentication token called <strong>X-AUTH-TOKEN</strong> associated with it.</p>
+<p>Every session that is created has an authentication token called <code>X-AUTH-TOKEN</code> associated with it.</p>
 
 <p>To authenticate subsequent requests, provide this token in the <code>X-AUTH-TOKEN</code> request header.</p>
 
-<p>NOTE:
-An <strong>X-AUTH-TOKEN</strong> is valid and a session is open only for 30 minutes, unless the user continues to send requests to a Redfish service using this token.</p>
+<p>NOTE:</p>
 
-<p>An idle session is automatically terminated after the timeout interval.</p></li>
+<ul>
+<li> An <code>X-AUTH-TOKEN</code> is valid and a session is open only for 30 minutes, unless the user continues to send requests to a Redfish service using this token.</li>
+<li> An idle session is automatically terminated after the timeout interval.</li>
+</ul></li>
 </ul>
 
 <p>NOTE:</p>
@@ -762,7 +797,7 @@ An <strong>X-AUTH-TOKEN</strong> is valid and a session is open only for 30 minu
 <ul>
 <li><p>When Basic Auth is used, creating a session is not required.</p></li>
 <li><p>You must authenticate all write requests(POST, PATCH, and DELETE ) on the resources except for The POST operation on the Sessions service/object needed for authentication.</p></li>
-<li><p>You must authenticate all resources except for:</p></li>
+<li><p>You must authenticate all read requests(GET ) on the resources except for:</p></li>
 <li><p>The service root</p></li>
 <li><p>The $metadata</p></li>
 <li><p>The OData Service Document</p></li>
@@ -810,14 +845,11 @@ An <strong>X-AUTH-TOKEN</strong> is valid and a session is open only for 30 minu
 
 <ul>
 <li>   admin
-:   The admin is an OEM pre-defined role that has all the privileges needed to manage all services. The admin can perform any actions such as adding and removing equipments, adding or removing users or privileges, and so on.
-
-<ul>
+:   The admin is an OEM pre-defined role that has all the privileges needed to manage all services. The admin can perform any actions such as adding and removing equipments, adding or removing users or privileges, and so on.</li>
 <li>   Client
 :   The client is an OEM role that uses the northbound APIs to manage the southbound infrastructure.</li>
 <li>   Monitor
 :   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.</li>
-</ul></li>
 </ul></li>
 </ul>
 
@@ -835,18 +867,15 @@ An <strong>X-AUTH-TOKEN</strong> is valid and a session is open only for 30 minu
 
 <ul>
 <li><p>ConfigureComponents
-:   Users with this privilege can configure components managed by the services in FODIM Redfish API.</p>
-
-<ul>
-<li>   ConfigureManager
-:   Users with this privilege can configure manager resources.</li>
-<li>   ConfigureSelf
-:   Users with this privilege can change the password for their account.</li>
-<li>   ConfigureUsers
-:   Users with this privilege can configure users and their accounts. This privilege is assigned to an administrator.</li>
-<li>   Login
-:   Users with this privilege can log into the service and read the resources.</li>
-</ul></li>
+:   Users with this privilege can configure components managed by the services in FODIM Redfish API.</p></li>
+<li><p>ConfigureManager
+:   Users with this privilege can configure manager resources.</p></li>
+<li><p>ConfigureSelf
+:   Users with this privilege can change the password for their account.</p></li>
+<li><p>ConfigureUsers
+:   Users with this privilege can configure users and their accounts. This privilege is assigned to an administrator.</p></li>
+<li><p>Login
+:   Users with this privilege can log into the service and read the resources.</p></li>
 </ul>
 
 <p>NOTE:</p>
@@ -954,35 +983,33 @@ An <strong>X-AUTH-TOKEN</strong> is valid and a session is open only for 30 minu
 <h1 id='adding-a-server'>Adding a Server</h1>
 <table><thead>
 <tr>
-<th>Method</th>
-<th>POST</th>
+<th><strong>Method</strong></th>
+<th><code>POST</code></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>URI</td>
+<td><strong>URI</strong></td>
 <td><code>/redfish/v1/AggregatorService/Actions/AggregationService.Add</code></td>
 </tr>
 <tr>
-<td>Returns</td>
+<td><strong>Returns</strong></td>
 <td>Location URI of the task monitor associated with this operation in the response header.</td>
 </tr>
 <tr>
-<td>Response Code</td>
-<td>202</td>
+<td><strong>Response Code</strong></td>
+<td>202 on success</td>
 </tr>
 </tbody></table>
 <h2 id='description'>Description</h2>
 <p>This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.</p>
 
-<p>To poll this action for its completion, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.</p>
+<p>This action is performed as a task. To know the status of the progress of this action, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.</p>
 
 <p>NOTE:</p>
 
 <p>Make note of the Computer System Id as it is required to perform subsequent actions such as delete, reset, and setdefaultbootorder on this server.</p>
-
-<p>*Computer System Id is represented as &quot;{UUID}:{<n\>}&quot; in FODIM.</p>
-<h2 id='usage'>Usage</h2><pre class="highlight plaintext"><code>curl --insecure -X POST \
+<h2 id='usage'>Usage</h2><pre class="highlight plaintext"><code>curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1074,7 +1101,7 @@ x-frame-options:sameorigin
 <li><p><code>/redfish/v1/EventService/Subscriptions</code></p></li>
 <li><p><code>redfish/v1/EventService</code></p></li>
 </ul>
-<h1 id='discovering-and-manipulating-southbound-infrastructure'>Discovering and manipulating southbound infrastructure</h1>
+<h1 id='accessing-the-inventory-of-a-managed-southbound-resource'>Accessing the inventory of a managed southbound resource</h1>
 <p>FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.</p>
 
 <p>Use these endpoints to discover information on all the telemetry you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.</p>
