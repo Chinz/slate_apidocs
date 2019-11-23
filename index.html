@@ -280,7 +280,7 @@
               </ul>
           </li>
           <li>
-            <a href="#aggregating-and-managing-southbound-infrastructure-use-case-for-server-aggregation" class="toc-h1 toc-link" data-title="Aggregating and managing southbound infrastructure (use case for server aggregation)">Aggregating and managing southbound infrastructure (use case for server aggregation)</a>
+            <a href="#aggregating-and-managing-southbound-infrastructure" class="toc-h1 toc-link" data-title="Aggregating and managing southbound infrastructure">Aggregating and managing southbound infrastructure</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#prerequisites" class="toc-h2 toc-link" data-title="Prerequisites">Prerequisites</a>
@@ -298,6 +298,24 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#adding-a-server" class="toc-h2 toc-link" data-title="Adding a Server">Adding a Server</a>
+                  </li>
+                  <li>
+                    <a href="#description" class="toc-h2 toc-link" data-title="Description">Description</a>
+                  </li>
+                  <li>
+                    <a href="#usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                  </li>
+                  <li>
+                    <a href="#sample-request-body" class="toc-h2 toc-link" data-title="Sample Request body">Sample Request body</a>
+                  </li>
+                  <li>
+                    <a href="#request-parameters" class="toc-h2 toc-link" data-title="Request Parameters">Request Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#sample-response-header" class="toc-h2 toc-link" data-title="Sample Response header">Sample Response header</a>
+                  </li>
+                  <li>
+                    <a href="#sample-response-body" class="toc-h2 toc-link" data-title="Sample Response body">Sample Response body</a>
                   </li>
               </ul>
           </li>
@@ -390,10 +408,9 @@ The examples shown in this document use cURL to make HTTP requests.</p>
 <p>Curl is a command line tool which helps you get or send information through URLs using supported protocols(<code>HTTP</code> in the case of FODIM).
 It is available at http://curl.haxx.se/ .</p>
 
-<p>All the cURL examples will use the following options(flags):
--  <code>--insecure</code> bypasses validation of the HTTPS certificate. In actual usage,      The FODIM RESTful API should be configured to use a user-supplied              certificate and this option is not necessary. 
-     Draft comment: Need clarity here.
--  <code>-i</code> returns HTTP response headers</p>
+<p>All the cURL examples use the following options(flags):
+-  <code>--insecure</code> bypasses validation of the HTTPS certificate. In actual        usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
+-  <code>-i</code> returns HTTP response headers.</p>
 <h1 id='list-of-supported-apis'>List of supported APIs</h1>
 <p>FODIM Redfish supports the following APIs:</p>
 
@@ -942,7 +959,7 @@ It is available at http://curl.haxx.se/ .</p>
 </ul>
 <h2 id='authentication'>Authentication</h2>
 <p>X-AUTH-TOKEN authentication or Basic authentication.</p>
-<h1 id='aggregating-and-managing-southbound-infrastructure-use-case-for-server-aggregation'>Aggregating and managing southbound infrastructure (use case for server aggregation)</h1>
+<h1 id='aggregating-and-managing-southbound-infrastructure'>Aggregating and managing southbound infrastructure</h1>
 <p>One of the state-of-the-art features of FODIM is that it allows users to add and group southbound infrastructure(servers, storage, or fabrics) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:</p>
 
 <ul>
@@ -988,7 +1005,7 @@ It is available at http://curl.haxx.se/ .</p>
 <td>202 on success</td>
 </tr>
 </tbody></table>
-<h3 id='description'>Description</h3>
+<h2 id='description'>Description</h2>
 <p>This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.</p>
 
@@ -997,7 +1014,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
 <p><strong>NOTE:</strong></p>
 
 <p>Make note of the Computer System Id as it is required to perform subsequent actions such as delete, reset, and setdefaultbootorder on this server.</p>
-<h3 id='usage'>Usage</h3><pre class="highlight plaintext"><code>curl -i --insecure -X POST \
+<h2 id='usage'>Usage</h2><pre class="highlight plaintext"><code>curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1005,7 +1022,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
  'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.Add'
 
 
-</code></pre><h3 id='sample-request-body'>Sample Request body</h3><pre class="highlight plaintext"><code>{
+</code></pre><h2 id='sample-request-body'>Sample Request body</h2><pre class="highlight plaintext"><code>{
     "ManagerAddress": "10.24.0.6",
     "Username": "username",
     "Password": "password",
@@ -1013,7 +1030,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
         "PluginID": "GRF"
     }
 }
-</code></pre><h3 id='request-parameters'>Request Parameters</h3>
+</code></pre><h2 id='request-parameters'>Request Parameters</h2>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1042,7 +1059,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
 <td>The plugin id Example : GRF (Generic Redfish Plugin)<br></td>
 </tr>
 </tbody></table>
-<h3 id='sample-response-header'>Sample Response header</h3><pre class="highlight plaintext"><code>content-length:0 byte
+<h2 id='sample-response-header'>Sample Response header</h2><pre class="highlight plaintext"><code>content-length:0 byte
 content-type:application/json; charset=utf-8
 date:Thu,
 07 Nov 2019 09:29:36 GMT+7m 8s
@@ -1050,7 +1067,7 @@ date:Thu,
 odata-version:4.0
 status:202
 x-frame-options:sameorigin
-</code></pre><h3 id='sample-response-body'>Sample Response body</h3>
+</code></pre><h2 id='sample-response-body'>Sample Response body</h2>
 <p>None</p>
 <h1 id='managing-tasks'>Managing tasks</h1>
 <p>A task represents an operation that takes more time than a user typically wants to wait and is carried out asynchronously.</p>
