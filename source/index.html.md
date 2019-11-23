@@ -37,7 +37,9 @@ It exposes RESTful APIs that are architected as per Redfish Scalable Platforms A
 ## Key benefits of FODIM
 
 - Simplifies lifecycle management of southbound infrastructure: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access to the same. 
+
 - Scalable : leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices alike(from stand-alone servers to rack mount and bladed environments to large scale server environments).
+
 - Simplifies interaction of northbound clients with southbound systems : FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
 
 ##  FODIM logical architecture
@@ -57,15 +59,15 @@ You can also easily write simple REST clients for RESTful APIs using modern scri
 It is good to use a tool, such as cURL or Postman initially to perform requests. Later, you will want to write your own scripting code to do this. 
 
 **Note:**
-The examples shown in this document use cURL to make HTTP reqests.
+The examples shown in this document use cURL to make HTTP requests.
 
 Curl is a command line tool which helps you get or send information through URLs using supported protocols(`HTTP` in the case of FODIM).
 It is available at http://curl.haxx.se/ .
 
 All the cURL examples will use the following options(flags):
-     -  `--insecure` bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
+-  `--insecure` bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
       Draft comment: Need clarity here.
-     -  `-i` returns HTTP response headers
+-  `-i` returns HTTP response headers
 
 
 
