@@ -36,11 +36,11 @@ It exposes RESTful APIs that are architected as per Redfish Scalable Platforms A
 
 ## Key benefits of FODIM
 
-- Simplifies lifecycle management of southbound infrastructure: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access to the same. 
+- **Simplifies lifecycle management of southbound infrastructure**: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. 
 
-- Scalable : leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices alike(from stand-alone servers to rack mount and bladed environments to large scale server environments).
+- **Scalable**: leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices alike(from stand-alone servers to rack mount and bladed environments to large scale server environments).
 
-- Simplifies interaction of northbound clients with southbound systems : FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
+- **Simplifies interaction of northbound clients with southbound systems**: FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
 
 ##  FODIM logical architecture
 
@@ -65,8 +65,8 @@ Curl is a command line tool which helps you get or send information through URLs
 It is available at http://curl.haxx.se/ .
 
 All the cURL examples will use the following options(flags):
--  `--insecure` bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
-      Draft comment: Need clarity here.
+-  `--insecure` bypasses validation of the HTTPS certificate. In actual usage,      The FODIM RESTful API should be configured to use a user-supplied              certificate and this option is not necessary. 
+     Draft comment: Need clarity here.
 -  `-i` returns HTTP response headers
 
 
@@ -395,7 +395,7 @@ One of the state-of-the-art features of FODIM is that it allows users to add and
 
 Using these endpoints, you can add or remove only one resource at a time. You can group the resources into one collection and perform actions such as reset and setdefaultbootorder in combination on that group.
 
-The next sections in this chapter contain the use case for server aggregation.
+The next section contains the use case for server aggregation.
 
 ##  Prerequisites
 
@@ -416,9 +416,9 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 -   `/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder`
 
+# Use case for server aggregation
 
-
-#  Adding a Server
+##  Adding a Server
 
 |**Method** |`POST`|
 |-----|-------------------|
@@ -426,7 +426,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 |**Returns** |Location URI of the task monitor associated with this operation in the response header.|
 |**Response Code** |202 on success|
 
-##  Description
+###  Description
 
 This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.
@@ -442,7 +442,7 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 
 
 
-##  Usage
+###  Usage
 
 ```
 curl -i --insecure -X POST \
@@ -455,7 +455,7 @@ curl -i --insecure -X POST \
 
 ```
 
-## Sample Request body
+### Sample Request body
 
 ```
 {
@@ -468,7 +468,7 @@ curl -i --insecure -X POST \
 }
 ```
 
-## Request Parameters
+### Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -477,7 +477,7 @@ curl -i --insecure -X POST \
 |Password|string|The password for this user account|
 |PluginID|string|The plugin id Example : GRF \(Generic Redfish Plugin\)<br> |
 
-##  Sample Response header
+###  Sample Response header
 
 ```
 content-length:0 byte
@@ -490,7 +490,7 @@ status:202
 x-frame-options:sameorigin
 ```
 
-##  Sample Response body
+###  Sample Response body
 
 None
 
