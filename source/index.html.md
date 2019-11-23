@@ -64,13 +64,9 @@ The examples shown in this document use cURL to make HTTP requests.
 Curl is a command line tool which helps you get or send information through URLs using supported protocols(`HTTP` in the case of FODIM).
 It is available at http://curl.haxx.se/ .
 
-All the cURL examples will use the following options(flags):
--  `--insecure` bypasses validation of the HTTPS certificate. In actual usage,      The FODIM RESTful API should be configured to use a user-supplied              certificate and this option is not necessary. 
-     Draft comment: Need clarity here.
--  `-i` returns HTTP response headers
-
-
-
+All the cURL examples use the following options(flags):
+-  `--insecure` bypasses validation of the HTTPS certificate. In actual        usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
+-  `-i` returns HTTP response headers.
 
 
 #  List of supported APIs
@@ -380,7 +376,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 
 
-#  Aggregating and managing southbound infrastructure \(use case for server aggregation\)
+#  Aggregating and managing southbound infrastructure
 
 One of the state-of-the-art features of FODIM is that it allows users to add and group southbound infrastructure\(servers, storage, or fabrics\) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:
 
@@ -426,7 +422,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 |**Returns** |Location URI of the task monitor associated with this operation in the response header.|
 |**Response Code** |202 on success|
 
-###  Description
+## Description
 
 This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.
@@ -442,7 +438,7 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 
 
 
-###  Usage
+##  Usage
 
 ```
 curl -i --insecure -X POST \
@@ -455,7 +451,7 @@ curl -i --insecure -X POST \
 
 ```
 
-### Sample Request body
+## Sample Request body
 
 ```
 {
@@ -468,7 +464,7 @@ curl -i --insecure -X POST \
 }
 ```
 
-### Request Parameters
+## Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -477,7 +473,7 @@ curl -i --insecure -X POST \
 |Password|string|The password for this user account|
 |PluginID|string|The plugin id Example : GRF \(Generic Redfish Plugin\)<br> |
 
-###  Sample Response header
+##  Sample Response header
 
 ```
 content-length:0 byte
@@ -490,7 +486,7 @@ status:202
 x-frame-options:sameorigin
 ```
 
-###  Sample Response body
+##  Sample Response body
 
 None
 
