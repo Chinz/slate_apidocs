@@ -27,9 +27,11 @@ to the requirements of the end customer.
 # Introduction to Framework for Open Distributed Manageability
 
   Managing a multitude of IT infrastructure devices of different make and type has never been easy, especially, when they exist across multiple data centers.
-The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution for IT infrastructure manageability:it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
+
+The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution for IT infrastructure manageability: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
  
  The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.
+
 It exposes RESTful APIs that are architected as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
 
 ## Key benefits of FODIM
@@ -51,17 +53,19 @@ The FODIM RESTful API is available on version __ or later.
 To access the RESTful API, you need an HTTPS-capable client, such as a web browser with a REST Client plugin extension, or a Desktop REST Client application (such as Postman), or cURL (a popular, free command line utility).
 You can also easily write simple REST clients for RESTful APIs using modern scripting languages.
 
-Tip:
+**Tip:**
 It is good to use a tool, such as cURL or Postman initially to perform requests. Later, you will want to write your own scripting code to do this. 
 
-Note:
+**Note:**
 The examples shown in this document use cURL to make HTTP reqests.
+
 Curl is a command line tool which helps you get or send information through URLs using supported protocols(`HTTP` in the case of FODIM).
 It is available at http://curl.haxx.se/ .
+
 All the cURL examples will use the following options(flags):
- - `--insecure` bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
-   Draft comment: Need clarity here.
- - `-i` returns HTTP response headers
+     -  `--insecure` bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
+      Draft comment: Need clarity here.
+     -  `-i` returns HTTP response headers
 
 
 
@@ -122,7 +126,7 @@ FODIM Redfish supports the following APIs:
 |/taskmon/\{TaskID\}|GET|
 
 
-NOTE:
+**NOTE:**
 
 *ComputerSystemId is FODIM specified unique id of the server. It is represented as "{UUID}:{n}" in FODIM \( Example : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
 
@@ -155,7 +159,6 @@ Following are the HTTP Status codes with their descriptions:
 |201 Created|A new resource is successfully created with the Location header set to well-defined URI for the newly created resource. The response body includes the representation of the newly created resource.|
 |202 Accepted|The request has been accepted for processing but not processed. The Location header is set to URI of a task monitor that can be queried later for the status of the operation.|
 |204 No content|The request was a success but no content was returned in the body of the response.|
-|207 Multi-Status|Information about multiple resources|
 |301 Moved Permanently|The requested resource resides in a different URI given by the Location headers.|
 |302 Found|The requested resource temporarily resides in a different URI.|
 |304 Not Modified|When the service has performed conditional GET request but the resource content has not changed.|
@@ -211,13 +214,13 @@ NOTE:
 
 -   You must authenticate all read requests\(GET \) on the resources except for:
 
--   The service root
+     -   The service root
 
--   The $metadata
+     -   The $metadata
 
--   The OData Service Document
+     -   The OData Service Document
 
--   The Redfish version
+     -   The Redfish version
 
 
 
@@ -284,7 +287,7 @@ With FODIM, there are two kinds of defined roles:
 
 
 
-NOTE:
+**NOTE:**
 
 -   Every user is assigned one role at the time of user account creation; ensure that the role to be assigned to a user is created before creating a user account.
 
@@ -317,7 +320,7 @@ The following privileges can be assigned to any user in FODIM:
 
 
 
-NOTE:
+**NOTE:**
 
 The privileges set for a Redfish pre-defined role cannot be modified.
 
@@ -429,7 +432,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.
 This action is performed as a task. To know the status of the progress of this action, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.
 
 
-NOTE:
+**NOTE:**
 
 Make note of the Computer System Id as it is required to perform subsequent actions such as delete, reset, and setdefaultbootorder on this server.
 
