@@ -15,7 +15,7 @@ search: true
 ---
 # About This Guide
 
-This document provides reference
+This document provides helpful reference
 information for the REST API requests
 that you can send to FODIM RESTful API.
 This document is intended for the
@@ -26,14 +26,42 @@ to the requirements of the end customer.
 
 # Introduction to Framework for Open Distributed Manageability
 
-The FODIM \(Framework for Open Distributed Manageability\) RESTful API for HPE FODIM is a programming interface enabling management of HPE Telco NFV infrastructure.
-FODIM combines with Redfish aggregation function to allow northbound clients to interact with the system and manage the southbound infrastructure using Redfish compliant APIs.
+  Managing a multitude of IT infrastructure devices of different make and type has never been easy, especially, when they exist across multiple data centers.
+The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution for IT infrastructure manageability:it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
+ 
+ The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.
+It exposes RESTful APIs that are architected as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
 
-With modern scripting languages, you can easily write simple REST clients for RESTful APIs.
+## Key benefits of FODIM
 
-#  FODIM logical architecture
+- Simplifies lifecycle management of southbound infrastructure: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access to the same. 
+- Scalable : leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices alike(from stand-alone servers to rack mount and bladed environments to large scale server environments).
+- Simplifies interaction of northbound clients with southbound systems : FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
+
+##  FODIM logical architecture
 
 The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.
+
+# Getting started
+
+## Using the FODIM RESTful API
+
+The FODIM RESTful API is available on version __ or later.
+
+To access the RESTful API, you need an HTTPS-capable client, such as a web browser with a REST Client plugin extension, or a Desktop REST Client application (such as Postman), or cURL (a popular, free command line utility).
+You can also easily write simple REST clients for RESTful APIs using modern scripting languages.
+
+Tip:
+It is good to use a tool, such as cURL or Postman initially to perform requests. Later, you will want to write your own scripting code to do this. 
+
+Note:
+The examples shown in this document use cURL to make HTTP reqests.
+Curl is a command line tool which helps you get or send information through URLs using supported protocols(`HTTP` in the case of FODIM).
+It is available at http://curl.haxx.se/ .
+All the cURL examples will use the following options(flags):
+ - `--insecure` bypasses validation of the HTTPS certificate. In actual usage, The FODIM RESTful API should be configured to use a user-supplied certificate and this option is not necessary. 
+   Draft comment: Need clarity here.
+ - `-i` returns HTTP response headers
 
 
 
@@ -51,7 +79,7 @@ FODIM Redfish supports the following APIs:
 |/redfish/v1/$metadata|GET|
 |/redfish/v1/SessionService|GET|
 |/redfish/v1/SessionService/Sessions|POST, GET|
-|redfish/v1/SessionService/Sessions/\{session id\}|GET, DELETE|
+|/redfish/v1/SessionService/Sessions/\{session id\}|GET, DELETE|
 |/redfish/v1/AccountService|GET|
 |/redfish/v1/AccountService/Accounts|POST, GET|
 |/redfish/v1/AccountService/Accounts/\{Account id\}|GET, DELETE, PATCH|
@@ -96,7 +124,7 @@ FODIM Redfish supports the following APIs:
 
 NOTE:
 
-*ComputerSystemId is ORCA specified unique id of the server. It is represented as "UUID:<n\>" in FODIM \( UUID:<n\> Eg : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
+*ComputerSystemId is FODIM specified unique id of the server. It is represented as "{UUID}:{n}" in FODIM \( Example : ba0a6871-7bc4-5f7a-903d-67f3c205b08c:1 \)
 
 
 #  HTTP Request Methods, Responses, and Error Codes for FODIM REST API
@@ -107,7 +135,6 @@ Following are the Redfish defined HTTP methods that you can use to implement var
 |--------------------|-----------|
 |`GET` \[Read Requests\]|Use this method to request a representation of a specified resource \(single resource or collection\).|
 |`PATCH` \[Update\]|Use this method to apply partial modifications to a resource.|
-|`PUT` \[Replace\]|Use this method to complete replace a resource. Any properties omitted from the body of the request are reset to their default value.|
 |`POST` \[Create\] \[Actions\]|Use this method to create a new resource. Submit this request to the resource collection to which you want to add the new resource. You can also use this method to initiate operations on an object.|
 |`DELETE` \[Delete\]|Use this method to delete a resource.|
 
@@ -154,25 +181,25 @@ Following are the HTTP Status codes with their descriptions:
 
 #  Authenticating requests when using the FODIM REST APIs
 
-Any one of the following authentication methods must be implemented to authenticate requests to the FODIM Redfish services:
+ Following authentication methods can be implemented to authenticate requests to the FODIM REST API:
 
 -   **HTTP BASIC authentication**
 
-    You can implement HTTP BASIC authentication by providing base64 encoded user name and password in an HTTP `Authorization: Basic` header \( Basic Auth\).
+    You can implement HTTP BASIC authentication by providing base64 encoded FODIM user name and password in an HTTP `Authorization: Basic` header \( Basic Auth\).
 
 -   **Redfish session login authentication**
 
-    You can implement Redfish Session Login Authentication by creating a Redfish login session through session management interface. To learn more about a session, See [Creating a session](#) section.
+    You can implement Redfish Session Login Authentication by creating a Redfish login session through session management interface. To learn more about a session, See [Creating and managing sessions](#) section.
 
-    Every session that is created has an authentication token called **X-AUTH-TOKEN** associated with it.
+    Every session that is created has an authentication token called `X-AUTH-TOKEN` associated with it.
 
     To authenticate subsequent requests, provide this token in the `X-AUTH-TOKEN` request header.
 
 
     NOTE:
-    An **X-AUTH-TOKEN** is valid and a session is open only for 30 minutes, unless the user continues to send requests to a Redfish service using this token.
+     -  An `X-AUTH-TOKEN` is valid and a session is open only for 30 minutes, unless the user continues to send requests to a Redfish service using this token.
 
-    An idle session is automatically terminated after the timeout interval.
+     -  An idle session is automatically terminated after the timeout interval.
 
 
 
@@ -182,7 +209,7 @@ NOTE:
 
 -   You must authenticate all write requests\(POST, PATCH, and DELETE \) on the resources except for The POST operation on the Sessions service/object needed for authentication.
 
--   You must authenticate all resources except for:
+-   You must authenticate all read requests\(GET \) on the resources except for:
 
 -   The service root
 
@@ -249,10 +276,10 @@ With FODIM, there are two kinds of defined roles:
     -    admin
  :   The admin is an OEM pre-defined role that has all the privileges needed to manage all services. The admin can perform any actions such as adding and removing equipments, adding or removing users or privileges, and so on.
 
-     -    Client
+    -    Client
  :   The client is an OEM role that uses the northbound APIs to manage the southbound infrastructure.
 
-     -    Monitor
+    -    Monitor
  :   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.
 
 
@@ -276,16 +303,16 @@ The following privileges can be assigned to any user in FODIM:
 -    ConfigureComponents
  :   Users with this privilege can configure components managed by the services in FODIM Redfish API.
 
- -    ConfigureManager
+-    ConfigureManager
  :   Users with this privilege can configure manager resources.
 
- -    ConfigureSelf
+-    ConfigureSelf
  :   Users with this privilege can change the password for their account.
 
- -    ConfigureUsers
+-    ConfigureUsers
  :   Users with this privilege can configure users and their accounts. This privilege is assigned to an administrator.
 
- -    Login
+-    Login
  :   Users with this privilege can log into the service and read the resources.
 
 
@@ -388,26 +415,23 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 #  Adding a Server
 
-|Method |POST|
+|**Method** |`POST`|
 |-----|-------------------|
-|URI|`/redfish/v1/AggregatorService/Actions/AggregationService.Add` |
-|Returns |Location URI of the task monitor associated with this operation in the response header.|
-|Response Code |202|
+|**URI**|`/redfish/v1/AggregatorService/Actions/AggregationService.Add` |
+|**Returns** |Location URI of the task monitor associated with this operation in the response header.|
+|**Response Code** |202 on success|
 
 ##  Description
 
 This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.
 
-To poll this action for its completion, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.
+This action is performed as a task. To know the status of the progress of this action, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully added in the inventory, its endpoint having the System Id is returned as response.
 
 
 NOTE:
 
 Make note of the Computer System Id as it is required to perform subsequent actions such as delete, reset, and setdefaultbootorder on this server.
-
-\*Computer System Id is represented as "\{UUID\}:\{<n\>\}" in FODIM.
-
 
 
 
@@ -416,7 +440,7 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 ##  Usage
 
 ```
-curl --insecure -X POST \
+curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -520,7 +544,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 
 
-# Discovering and manipulating southbound infrastructure
+# Accessing the inventory of a managed southbound resource
 
 FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.
 
