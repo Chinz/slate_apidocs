@@ -3,9 +3,7 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - curl
-  - sample response header
-  - sample request body
-  - sample response header
+  
 
 
 toc_footers:
@@ -31,11 +29,11 @@ to the requirements of the end customer.
 
   Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple data centers.
 
-The FODIM \(Framework for Open Distributed Manageability\) RESTful API is a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
+The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
  
  The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.
 
-It exposes RESTful APIs that are designed as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
+The RESTful APIs exposed by the FODIM are designed as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
 
 ## Key benefits of FODIM
 
@@ -49,9 +47,9 @@ It exposes RESTful APIs that are designed as per Redfish Scalable Platforms API 
 
 The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.
 
-# Getting started
 
-## Using the FODIM RESTful API
+
+# Using the FODIM RESTful API
 
 The FODIM RESTful API is available on version __ or later.
 
@@ -68,11 +66,11 @@ Curl is a command line tool which helps you get or send information through URLs
 It is available at http://curl.haxx.se/ .
 
 All the cURL examples use the following options(flags):
--  `--insecure` 
-      Bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
+-    `--insecure` 
+       bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
 	   
--  `-i` 
-      returns HTTP response headers.
+-    `-i` 
+       returns HTTP response headers.
 
 
 #  List of supported APIs
@@ -418,6 +416,89 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 -   `/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder`
 
+## The aggregation service root
+
+
+
+|**Method**|`GET` |
+|-----|-------------------|
+|**URI** |`redfish/v1/AggregationService` |
+|**Description** |The URI for the Aggregation service root.|
+|**Returns** |Properties for the service and a list of actions you can perform using this service.|
+|**Response Code** |`200` on success|
+
+ 
+
+**Usage** 
+
+```
+curl --insecure -X GET \
+   -H "X-Auth-Token:{X-Auth-Token}" \
+ 'https://{FODIM_IP_address}/redfish/v1/AggregationService'
+
+
+```
+
+**Sample Request body** 
+
+None
+
+**Sample Response header** 
+
+```
+allow:	GET
+cache-control:	no-cache
+content-length:	1 kilobytes
+content-type:	application/json; charset=utf-8
+date:	Mon, 18 Nov 2019 14:52:21 GMT+5h 37m
+etag:	W/"12345"
+link:	/v1/SchemaStore/en/AggregationService.json>; rel=describedby
+odata-version:	4.0
+status:	200
+x-frame-options:	sameorigin
+
+```
+
+**Sample Response body** 
+
+```
+{ 
+   "@odata.context":"/redfish/v1/$metadata#AggregationService.AggregationService",
+   "@odata.etag":"W/\"979B45E7\"",
+   "Id":"AggregationService",
+   "@odata.id":"/redfish/v1/AggregationService",
+   "@odata.type":"#AggregationService.v1_0_0.AggregationService",
+   "Name":"AggregationService",
+   "Description":"AggregationService",
+   "Actions":{ 
+      "#AggregationService.Add":{ 
+         "target":"/redfish/v1/AggregationService/Actions/AggregationService.Add/",
+         "@Redfish.ActionInfo":"/redfish/v1/AggregationService/AddActionInfo"
+      },
+      "#AggregationService.Remove":{ 
+         "target":"/redfish/v1/AggregationService/Actions/AggregationService.Remove/",
+         "@Redfish.ActionInfo":"/redfish/v1/AggregationService/RemoveActionInfo"
+      },
+      "#AggregationService.Reset":{ 
+         "target":"/redfish/v1/AggregationService/Actions/AggregationService.Reset/",
+         "@Redfish.ActionInfo":"/redfish/v1/AggregationService/ResetActionInfo"
+      },
+      "#AggregationService.SetDefaultBootOrder":{ 
+         "target":"/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder/",
+         "@Redfish.ActionInfo":"/redfish/v1/AggregationService/SetDefaultBootOrderActionInfo"
+      }
+   },
+   "ServiceEnabled":true,
+   "Status":{ 
+      "Health":"OK",
+      "HealthRollup":"OK",
+      "State":"Enabled"
+   }
+}
+```
+
+
+
 # Use case for server aggregation
 
 ##  Adding a Server
@@ -426,7 +507,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 |-----|-------------------|
 |**URI**|`/redfish/v1/AggregatorService/Actions/AggregationService.Add` |
 |**Returns** |Location URI of the task monitor associated with this operation in the response header.|
-|**Response Code** |202 on success|
+|**Response Code** |`202` on success|
 
 ## Description
 
@@ -495,6 +576,333 @@ x-frame-options:sameorigin
 ##  Sample Response body
 
 None
+
+## Resetting one or more servers
+
+|**Method** |`POST` |
+|-----|-------------------|
+|**URI** |`/redfish/v1/AggregatorService/Actions/AggregationService.Reset` |
+|**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
+|**Response Code** |`202` on success|
+
+##  Description
+
+This action shuts down, powers up, and restarts one or more servers.
+
+You can perform reset on a group of servers by specifying multiple target URIs in the request.
+
+To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the servers are successfully reset, 200 response code along with a success message in the response body is returned.
+
+##  Usage
+
+```
+curl --insecure -X POST \
+   -H "X-Auth-Token:{X-Auth-Token}" \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+"@Redfish.Copyright": "Copyright 2018-2019 DMTF. All rights reserved.",
+"@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
+"@odata.id": "/redfish/v1/AggregationService/ResetActionInfo",
+"@odata.type": "#ActionInfo.v1_0_3.ActionInfo",
+"Id": "AddActionInfo",
+"Name": "Reset Action Info",
+
+ "Oem": {
+
+  },
+
+"parameters": {
+"ResetCollection": {
+"description": "Collection of ResetTargets",
+"ResetTarget": [{
+"ResetType": "ForceRestart",
+"TargetUri": "/redfish/v1/Systems/{ComputerSystemId}"
+},
+{
+"ResetType": "ForceOff",
+"TargetUri": "/redfish/v1/Systems/{ComputerSystemId}"
+}
+]
+}
+}
+}' \
+ 'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.Reset'
+
+
+```
+
+##  Sample Request body
+
+```
+{ 
+   "@Redfish.Copyright":"Copyright 2018-2019 DMTF. All rights reserved.",
+   "@odata.context":"/redfish/v1/$metadata#ActionInfo.ActionInfo",
+   "@odata.id":"/redfish/v1/AggregationService/ResetActionInfo",
+   "@odata.type":"#ActionInfo.v1_0_3.ActionInfo",
+   "Id":"AddActionInfo",
+   "Name":"Reset Action Info",
+   "Oem":{ 
+
+   },
+   "parameters":{ 
+      "ResetCollection":{ 
+         "description":"Collection of ResetTargets",
+         "ResetTarget":[ 
+            { 
+               "ResetType":"ForceRestart",
+               "TargetUri":"/redfish/v1/Systems/97d08f36-17f5-5918-8082-f5156618f58d:1"
+            },
+            { 
+               "ResetType":"ForceOff",
+               "TargetUri":"/redfish/v1/Systems/24b243cf-f1e3-5318-92d9-2d6737d6b0b9:1"
+            }
+         ]
+      }
+   }
+}
+
+```
+
+##  Request Parameters
+
+|Parameter|Type|Description|
+|---------|----|-----------|
+|@odata.context|string|Refer to Common Redfish Schema parameters section.|
+|@odata.id|string|Refer to Common Redfish Schema parameters section.|
+|@odata.type|string|Refer to Common Redfish Schema parameters section.|
+|Id|string|Refer to Common Redfish Schema parameters section.|
+|Name|string|Refer to Common Redfish Schema parameters section.|
+|Oem|object|Refer to Common Redfish Schema parameters section.|
+|parameters\[ \{|array|The parameters associated with the Reset Action.|
+|ResetType|string|The type of reset to be performed. See "Reset Type" section below, for the possible values of this property.|
+|TargetUri \} \] |string|The URI of the target for Reset - `"/redfish/v1/Systems/<ComputerSystemId>"` |
+
+##  Reset Type
+
+|string|Description|
+|------|-----------|
+|ForceOff|Turn the unit off immediately \(non-graceful shutdown\).|
+|ForceOn|Turn the unit on immediately.|
+|ForceRestart|Perform an immediate \(non-graceful\) shutdown, followed by a restart.|
+|GracefulRestart|Perform a graceful shutdown followed by a restart of the system.|
+|GracefulShutdown|Perform a graceful shutdown. Graceful shutdown involves shutdown of the operating system followed by the power off of the physical server.|
+|Nmi|Generate a Diagnostic Interrupt \(usually an NMI on x86 systems\) to cease normal operations, perform diagnostic actions and typically halt the system.|
+|On|Turn the unit on.|
+|PowerCycle|Perform a power cycle of the unit.|
+|PushPowerButton|Simulate the pressing of the physical power button on this unit.|
+
+##  Sample Response header
+
+```
+content-length:	0 byte
+content-type:	application/json; charset=utf-8
+date:	Fri, 08 Nov 2019 07:49:42 GMT+7m 9s
+**location:	/taskmon/taska9702e20-884c-41e2-bd9c-d779a4dd2e6e**
+odata-version:	4.0
+status:	202
+x-frame-options:	sameorigin
+```
+
+##  Sample Response body
+
+None
+
+#  Changing the boot order of a set of servers to default settings
+
+|**Method** |`POST`|
+|-----|-------------------|
+|**URI** |`/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder` |
+|**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
+|**Response Code** |`202` on success|
+
+##  Description
+
+This action changes the boot order of one or more servers to default settings.
+
+You can perform setDefaultBootOrder on a group of servers by specifying multiple server URIs in the request.
+
+To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See [How to monitor a task](#). If the setDefaultBootOrder action is successful, 200 response code along with a success message in the response body is returned.
+
+##  Usage
+
+```
+curl --insecure -X POST \
+   -H "X-Auth-Token:{X-Auth-Token}" \
+   -H "Content-Type:application/json" \
+   -d \
+'{ 
+
+"@Redfish.Copyright": "Copyright 2018-2019 DMTF. All rights reserved.", 
+
+ "@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo", 
+
+ "@odata.id": "/redfish/v1/AggregationService/SetDefaultBootOrderActionInfo", 
+
+                 "@odata.type": "#ActionInfo.v1_0_3.ActionInfo", 
+
+                 "Id": "AddActionInfo", 
+
+                 "Name": "SetDefaultBootOrder Action Info", 
+
+                  "parameters": { 
+
+                  "ServerCollection": [ 
+
+"/redfish/v1/Systems/{ComputerSystemId}", 
+
+"/redfish/v1/Systems/{ComputerSystemId}" 
+
+] 
+
+} 
+
+}' \
+ 'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder'
+
+
+```
+
+##  Sample Request body
+
+```
+{ 
+   "@Redfish.Copyright":"Copyright 2018-2019 DMTF. All rights reserved.",
+   "@odata.context":"/redfish/v1/$metadata#ActionInfo.ActionInfo",
+   "@odata.id":"/redfish/v1/AggregationService/SetDefaultBootOrderActionInfo",
+   "@odata.type":"#ActionInfo.v1_0_3.ActionInfo",
+   "Id":"AddActionInfo",
+   "Name":"SetDefaultBootOrder Action Info",
+   "parameters":{ 
+      "ServerCollection":[ 
+         "/redfish/v1/Systems/97d08f36-17f5-5918-8082-f5156618f58d:1",
+         "/redfish/v1/Systems/76632110-1c75-5a86-9cc2-471325983653:1"
+      ]
+   }
+}
+
+```
+
+##  Request Parameters
+
+|Parameter|Type|Description|
+|---------|----|-----------|
+|@odata.context|string|Refer to Common Redfish Schema parameters.|
+|@odata.id|string|Refer to Common Redfish Schema parameters.|
+|@odata.type|string|Refer to Common Redfish Schema parameters.|
+|Id|string|Refer to Common Redfish Schema parameters.|
+|Name|string|Refer to Common Redfish Schema parameters.|
+|parameters\[ \{|array|The parameters associated with the SetDefaultBootOrder Action.|
+|ServerCollection \} \]<br> | |Target servers for setDefaultBootOrder|
+
+##  Sample Response header
+
+```
+status:	202
+content-type:	application/json; charset=utf-8
+**location:	/taskmon/task7c1b4b6c-8e46-4fb6-a66a-6f629c10d827**
+odata-version:	4.0
+x-frame-options:	sameorigin
+content-length:	0 byte
+date:	
+Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
+```
+
+##  Sample Response body
+
+None
+
+
+
+##  Deleting a Server
+
+|**Method** |`POST` |
+|------|-----------|
+|**URI** |`/redfish/v1/AggregatorService/Actions/AggregationService.Remove` |
+|**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
+|**Response Code** |`202` on success|
+
+##  Description
+
+This action removes a specific server from the inventory.
+
+To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully removed from the inventory, 200 response code is returned.
+
+##  Usage
+
+```
+curl --insecure -X POST \
+   -H "X-Auth-Token:{X-Auth-Token}" \
+   -H "Content-Type:application/json" \
+   -d \
+'{
+"@Redfish.Copyright": "Copyright 2018-2019 DMTF. All rights reserved.",
+"@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
+"@odata.id": "/redfish/v1/AggregationService/RemoveActionInfo",
+"@odata.type": "#ActionInfo.v1_0_3.ActionInfo",
+"Id": "RemoveActionInfo",
+"Name": "Remove Action Info",
+"Oem": "",
+"parameters": [
+{
+"Name": "/redfish/v1/Systems/{ComputerSystemId}"
+}
+]
+}' \
+ 'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.Remove/'
+
+
+```
+
+##  Sample Request body
+
+```
+{
+	"@Redfish.Copyright": "Copyright 2018-2019 DMTF. All rights reserved.",
+	"@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
+	"@odata.id": "/redfish/v1/AggregationService/RemoveActionInfo",
+	"@odata.type": "#ActionInfo.v1_0_3.ActionInfo",
+	"Id": "AddActionInfo",
+	"Name": "Remove Action Info",
+	"Oem": "",
+	"parameters": [
+		{
+			"Name": "/redfish/v1/Systems/97d08f36-17f5-5918-8082-f5156618f58d:1"
+        }
+	]
+}
+```
+
+##  Request Parameters
+
+|Parameter|Type|Description|
+|---------|----|-----------|
+|@odata.context|string|Refer to Common Redfish Schema parameters.|
+|@odata.id|string|Refer to Common Redfish Schema parameters.|
+|@odata.type|string|Refer to Common Redfish Schema parameters.|
+|Id|string|Refer to Common Redfish Schema parameters.|
+|Name|string|Refer to Common Redfish Schema parameters.|
+|Oem|object|Refer to Common Redfish Schema parameters.|
+|parameters\[ \{|array|The parameters associated with the Delete Action.|
+|Name \} \]<br> |string|The URI of the target to be removed - `"/redfish/v1/Systems/{ComputerSystemId}"` |
+
+##  Sample Response header
+
+```
+content-length:	0 byte
+content-type:	application/json; charset=utf-8
+date:	Fri, 08 Nov 2019 05:49:05 GMT+7m 10s
+**location:	/taskmon/taskd5bba4ec-35a3-43cc-a058-9634c488a488**
+odata-version:	4.0
+status:	202
+x-frame-options:	sameorigin
+```
+
+##  Sample Response body
+
+None
+
+
 
 #  Managing tasks
 
