@@ -429,7 +429,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
  
 
-**Usage** 
+### Usage 
 
 ```
 curl --insecure -X GET \
@@ -439,11 +439,11 @@ curl --insecure -X GET \
 
 ```
 
-**Sample Request body** 
+### Sample Request body 
 
 None
 
-**Sample Response header** 
+### Sample Response header 
 
 ```
 allow:	GET
@@ -459,7 +459,7 @@ x-frame-options:	sameorigin
 
 ```
 
-**Sample Response body** 
+### Sample Response body 
 
 ```
 { 
@@ -509,7 +509,7 @@ x-frame-options:	sameorigin
 |**Returns** |Location URI of the task monitor associated with this operation in the response header.|
 |**Response Code** |`202` on success|
 
-## Description
+### Description
 
 This action adds a single server in the inventory.
 On success, ORCA specified Computer System Id is assigned to the added server.
@@ -525,7 +525,7 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 
 
 
-##  Usage
+###  Usage
 
 ```
 curl -i --insecure -X POST \
@@ -538,7 +538,7 @@ curl -i --insecure -X POST \
 
 ```
 
-## Sample Request body
+### Sample Request body
 
 ```
 {
@@ -551,7 +551,7 @@ curl -i --insecure -X POST \
 }
 ```
 
-## Request Parameters
+### Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -560,7 +560,7 @@ curl -i --insecure -X POST \
 |Password|string|The password for this user account|
 |PluginID|string|The plugin id Example : GRF \(Generic Redfish Plugin\)<br> |
 
-##  Sample Response header
+###  Sample Response header
 
 ```
 content-length:0 byte
@@ -573,7 +573,7 @@ status:202
 x-frame-options:sameorigin
 ```
 
-##  Sample Response body
+###  Sample Response body
 
 None
 
@@ -585,7 +585,7 @@ None
 |**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
 |**Response Code** |`202` on success|
 
-##  Description
+###  Description
 
 This action shuts down, powers up, and restarts one or more servers.
 
@@ -593,7 +593,7 @@ You can perform reset on a group of servers by specifying multiple target URIs i
 
 To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the servers are successfully reset, 200 response code along with a success message in the response body is returned.
 
-##  Usage
+###  Usage
 
 ```
 curl --insecure -X POST \
@@ -632,7 +632,7 @@ curl --insecure -X POST \
 
 ```
 
-##  Sample Request body
+###  Sample Request body
 
 ```
 { 
@@ -664,7 +664,7 @@ curl --insecure -X POST \
 
 ```
 
-##  Request Parameters
+###  Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -678,7 +678,7 @@ curl --insecure -X POST \
 |ResetType|string|The type of reset to be performed. See "Reset Type" section below, for the possible values of this property.|
 |TargetUri \} \] |string|The URI of the target for Reset - `"/redfish/v1/Systems/<ComputerSystemId>"` |
 
-##  Reset Type
+###  Reset Type
 
 |string|Description|
 |------|-----------|
@@ -692,7 +692,7 @@ curl --insecure -X POST \
 |PowerCycle|Perform a power cycle of the unit.|
 |PushPowerButton|Simulate the pressing of the physical power button on this unit.|
 
-##  Sample Response header
+###  Sample Response header
 
 ```
 content-length:	0 byte
@@ -704,11 +704,11 @@ status:	202
 x-frame-options:	sameorigin
 ```
 
-##  Sample Response body
+###  Sample Response body
 
 None
 
-#  Changing the boot order of a set of servers to default settings
+##  Changing the boot order of a set of servers to default settings
 
 |**Method** |`POST`|
 |-----|-------------------|
@@ -716,7 +716,7 @@ None
 |**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
 |**Response Code** |`202` on success|
 
-##  Description
+###  Description
 
 This action changes the boot order of one or more servers to default settings.
 
@@ -724,7 +724,7 @@ You can perform setDefaultBootOrder on a group of servers by specifying multiple
 
 To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See [How to monitor a task](#). If the setDefaultBootOrder action is successful, 200 response code along with a success message in the response body is returned.
 
-##  Usage
+###  Usage
 
 ```
 curl --insecure -X POST \
@@ -763,7 +763,7 @@ curl --insecure -X POST \
 
 ```
 
-##  Sample Request body
+###  Sample Request body
 
 ```
 { 
@@ -783,7 +783,7 @@ curl --insecure -X POST \
 
 ```
 
-##  Request Parameters
+###  Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -795,7 +795,7 @@ curl --insecure -X POST \
 |parameters\[ \{|array|The parameters associated with the SetDefaultBootOrder Action.|
 |ServerCollection \} \]<br> | |Target servers for setDefaultBootOrder|
 
-##  Sample Response header
+###  Sample Response header
 
 ```
 status:	202
@@ -808,7 +808,7 @@ date:
 Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 ```
 
-##  Sample Response body
+###  Sample Response body
 
 None
 
@@ -822,13 +822,13 @@ None
 |**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
 |**Response Code** |`202` on success|
 
-##  Description
+###  Description
 
 This action removes a specific server from the inventory.
 
 To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully removed from the inventory, 200 response code is returned.
 
-##  Usage
+###  Usage
 
 ```
 curl --insecure -X POST \
@@ -854,7 +854,7 @@ curl --insecure -X POST \
 
 ```
 
-##  Sample Request body
+###  Sample Request body
 
 ```
 {
@@ -873,7 +873,7 @@ curl --insecure -X POST \
 }
 ```
 
-##  Request Parameters
+###  Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -886,7 +886,7 @@ curl --insecure -X POST \
 |parameters\[ \{|array|The parameters associated with the Delete Action.|
 |Name \} \]<br> |string|The URI of the target to be removed - `"/redfish/v1/Systems/{ComputerSystemId}"` |
 
-##  Sample Response header
+###  Sample Response header
 
 ```
 content-length:	0 byte
@@ -898,7 +898,7 @@ status:	202
 x-frame-options:	sameorigin
 ```
 
-##  Sample Response body
+###  Sample Response body
 
 None
 
