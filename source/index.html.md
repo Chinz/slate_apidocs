@@ -525,7 +525,7 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 
 
 
-###  Usage
+>  Usage
 
 ```
 curl -i --insecure -X POST \
@@ -538,7 +538,7 @@ curl -i --insecure -X POST \
 
 ```
 
-### Sample Request body
+> Sample Request body
 
 ```
 {
@@ -551,7 +551,7 @@ curl -i --insecure -X POST \
 }
 ```
 
-### Request Parameters
+> Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -560,7 +560,7 @@ curl -i --insecure -X POST \
 |Password|string|The password for this user account|
 |PluginID|string|The plugin id Example : GRF \(Generic Redfish Plugin\)<br> |
 
-###  Sample Response header
+>  Sample Response header
 
 ```
 content-length:0 byte
@@ -573,7 +573,7 @@ status:202
 x-frame-options:sameorigin
 ```
 
-###  Sample Response body
+>  Sample Response body
 
 None
 
