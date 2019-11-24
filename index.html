@@ -1003,14 +1003,16 @@ It is available at http://curl.haxx.se/ .</p>
 <td><code>200</code> on success</td>
 </tr>
 </tbody></table>
-<h3 id='usage'>Usage</h3><pre class="highlight plaintext"><code>curl --insecure -X GET \
+<pre class="highlight plaintext"><code>curl --insecure -X GET \
    -H "X-Auth-Token:{X-Auth-Token}" \
  'https://{FODIM_IP_address}/redfish/v1/AggregationService'
 
 
-</code></pre><h3 id='sample-request-body'>Sample Request body</h3>
-<p>None</p>
-<h3 id='sample-response-header'>Sample Response header</h3><pre class="highlight plaintext"><code>allow:  GET
+</code></pre>
+<blockquote>
+<p>Sample Response header </p>
+</blockquote>
+<pre class="highlight plaintext"><code>allow:  GET
 cache-control:  no-cache
 content-length: 1 kilobytes
 content-type:   application/json; charset=utf-8
@@ -1021,7 +1023,11 @@ odata-version:  4.0
 status: 200
 x-frame-options:    sameorigin
 
-</code></pre><h3 id='sample-response-body'>Sample Response body</h3><pre class="highlight plaintext"><code>{ 
+</code></pre>
+<blockquote>
+<p>Sample Response body </p>
+</blockquote>
+<pre class="highlight plaintext"><code>{ 
    "@odata.context":"/redfish/v1/$metadata#AggregationService.AggregationService",
    "@odata.etag":"W/\"979B45E7\"",
    "Id":"AggregationService",
@@ -1083,10 +1089,6 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
 <p><strong>NOTE:</strong></p>
 
 <p>Make note of the Computer System Id as it is required to perform subsequent actions such as delete, reset, and setdefaultbootorder on this server.</p>
-
-<blockquote>
-<p>Usage</p>
-</blockquote>
 <pre class="highlight plaintext"><code>curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
@@ -1107,11 +1109,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
         "PluginID": "GRF"
     }
 }
-</code></pre>
-<blockquote>
-<p>Request Parameters</p>
-</blockquote>
-
+</code></pre><h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1156,9 +1154,8 @@ x-frame-options:sameorigin
 <blockquote>
 <p>Sample Response body</p>
 </blockquote>
-
-<p>None</p>
-<h2 id='resetting-one-or-more-servers'>Resetting one or more servers</h2>
+<pre class="highlight plaintext"><code>None
+</code></pre><h2 id='resetting-one-or-more-servers'>Resetting one or more servers</h2>
 <table><thead>
 <tr>
 <th><strong>Method</strong></th>
@@ -1184,7 +1181,7 @@ x-frame-options:sameorigin
 <p>You can perform reset on a group of servers by specifying multiple target URIs in the request.</p>
 
 <p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the servers are successfully reset, 200 response code along with a success message in the response body is returned.</p>
-<h3 id='usage-2'>Usage</h3><pre class="highlight plaintext"><code>curl --insecure -X POST \
+<pre class="highlight plaintext"><code>curl --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1218,7 +1215,11 @@ x-frame-options:sameorigin
  'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.Reset'
 
 
-</code></pre><h3 id='sample-request-body-2'>Sample Request body</h3><pre class="highlight plaintext"><code>{ 
+</code></pre>
+<blockquote>
+<p>Sample Request body</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{ 
    "@Redfish.Copyright":"Copyright 2018-2019 DMTF. All rights reserved.",
    "@odata.context":"/redfish/v1/$metadata#ActionInfo.ActionInfo",
    "@odata.id":"/redfish/v1/AggregationService/ResetActionInfo",
@@ -1245,7 +1246,7 @@ x-frame-options:sameorigin
    }
 }
 
-</code></pre><h3 id='request-parameters'>Request Parameters</h3>
+</code></pre><h3 id='request-parameters-2'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1343,16 +1344,23 @@ x-frame-options:sameorigin
 <td>Simulate the pressing of the physical power button on this unit.</td>
 </tr>
 </tbody></table>
-<h3 id='sample-response-header-2'>Sample Response header</h3><pre class="highlight plaintext"><code>content-length: 0 byte
+
+<blockquote>
+<p>Sample Response header</p>
+</blockquote>
+<pre class="highlight plaintext"><code>content-length: 0 byte
 content-type:   application/json; charset=utf-8
 date:   Fri, 08 Nov 2019 07:49:42 GMT+7m 9s
 **location: /taskmon/taska9702e20-884c-41e2-bd9c-d779a4dd2e6e**
 odata-version:  4.0
 status: 202
 x-frame-options:    sameorigin
-</code></pre><h3 id='sample-response-body-2'>Sample Response body</h3>
-<p>None</p>
-<h2 id='changing-the-boot-order-of-a-set-of-servers-to-default-settings'>Changing the boot order of a set of servers to default settings</h2>
+</code></pre>
+<blockquote>
+<p>Sample Response body</p>
+</blockquote>
+<pre class="highlight plaintext"><code>None
+</code></pre><h2 id='changing-the-boot-order-of-a-set-of-servers-to-default-settings'>Changing the boot order of a set of servers to default settings</h2>
 <table><thead>
 <tr>
 <th><strong>Method</strong></th>
@@ -1378,7 +1386,7 @@ x-frame-options:    sameorigin
 <p>You can perform setDefaultBootOrder on a group of servers by specifying multiple server URIs in the request.</p>
 
 <p>To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the setDefaultBootOrder action is successful, 200 response code along with a success message in the response body is returned.</p>
-<h3 id='usage-3'>Usage</h3><pre class="highlight plaintext"><code>curl --insecure -X POST \
+<pre class="highlight plaintext"><code>curl --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1412,7 +1420,11 @@ x-frame-options:    sameorigin
  'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.SetDefaultBootOrder'
 
 
-</code></pre><h3 id='sample-request-body-3'>Sample Request body</h3><pre class="highlight plaintext"><code>{ 
+</code></pre>
+<blockquote>
+<p>Sample Request body</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{ 
    "@Redfish.Copyright":"Copyright 2018-2019 DMTF. All rights reserved.",
    "@odata.context":"/redfish/v1/$metadata#ActionInfo.ActionInfo",
    "@odata.id":"/redfish/v1/AggregationService/SetDefaultBootOrderActionInfo",
@@ -1427,7 +1439,7 @@ x-frame-options:    sameorigin
    }
 }
 
-</code></pre><h3 id='request-parameters-2'>Request Parameters</h3>
+</code></pre><h3 id='request-parameters-3'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1471,7 +1483,11 @@ x-frame-options:    sameorigin
 <td>Target servers for setDefaultBootOrder</td>
 </tr>
 </tbody></table>
-<h3 id='sample-response-header-3'>Sample Response header</h3><pre class="highlight plaintext"><code>status: 202
+
+<blockquote>
+<p>Sample Response header</p>
+</blockquote>
+<pre class="highlight plaintext"><code>status: 202
 content-type:   application/json; charset=utf-8
 **location: /taskmon/task7c1b4b6c-8e46-4fb6-a66a-6f629c10d827**
 odata-version:  4.0
@@ -1479,9 +1495,12 @@ x-frame-options:    sameorigin
 content-length: 0 byte
 date:   
 Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
-</code></pre><h3 id='sample-response-body-3'>Sample Response body</h3>
-<p>None</p>
-<h2 id='deleting-a-server'>Deleting a Server</h2>
+</code></pre>
+<blockquote>
+<p>Sample Response body</p>
+</blockquote>
+<pre class="highlight plaintext"><code>None
+</code></pre><h2 id='deleting-a-server'>Deleting a Server</h2>
 <table><thead>
 <tr>
 <th><strong>Method</strong></th>
@@ -1505,7 +1524,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 <p>This action removes a specific server from the inventory.</p>
 
 <p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully removed from the inventory, 200 response code is returned.</p>
-<h3 id='usage-4'>Usage</h3><pre class="highlight plaintext"><code>curl --insecure -X POST \
+<pre class="highlight plaintext"><code>curl --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1526,7 +1545,11 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
  'https://{FODIM_IP_address}/redfish/v1/AggregationService/Actions/AggregationService.Remove/'
 
 
-</code></pre><h3 id='sample-request-body-4'>Sample Request body</h3><pre class="highlight plaintext"><code>{
+</code></pre>
+<blockquote>
+<p>Sample Request body</p>
+</blockquote>
+<pre class="highlight plaintext"><code>{
     "@Redfish.Copyright": "Copyright 2018-2019 DMTF. All rights reserved.",
     "@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
     "@odata.id": "/redfish/v1/AggregationService/RemoveActionInfo",
@@ -1540,7 +1563,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
         }
     ]
 }
-</code></pre><h3 id='request-parameters-3'>Request Parameters</h3>
+</code></pre><h3 id='request-parameters-4'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1589,16 +1612,23 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 <td>The URI of the target to be removed - <code>&quot;/redfish/v1/Systems/{ComputerSystemId}&quot;</code></td>
 </tr>
 </tbody></table>
-<h3 id='sample-response-header-4'>Sample Response header</h3><pre class="highlight plaintext"><code>content-length: 0 byte
+
+<blockquote>
+<p>Sample Response header</p>
+</blockquote>
+<pre class="highlight plaintext"><code>content-length: 0 byte
 content-type:   application/json; charset=utf-8
 date:   Fri, 08 Nov 2019 05:49:05 GMT+7m 10s
 **location: /taskmon/taskd5bba4ec-35a3-43cc-a058-9634c488a488**
 odata-version:  4.0
 status: 202
 x-frame-options:    sameorigin
-</code></pre><h3 id='sample-response-body-4'>Sample Response body</h3>
-<p>None</p>
-<h1 id='managing-tasks'>Managing tasks</h1>
+</code></pre>
+<blockquote>
+<p>Sample Response body</p>
+</blockquote>
+<pre class="highlight plaintext"><code>None
+</code></pre><h1 id='managing-tasks'>Managing tasks</h1>
 <p>A task represents an operation that takes more time than a user typically wants to wait and is carried out asynchronously.</p>
 
 <p>An example of a task is resetting an aggregate of servers. Resetting all the servers in a group is a time-consuming operation; the user waiting for the result would be blocked from performing other operations. FODIM creates Redfish tasks for such long-duration operations and offers an interface for the users to manage them while performing other operations.</p>
