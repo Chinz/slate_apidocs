@@ -429,7 +429,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
  
 
-### Usage 
+ 
 
 ```
 curl --insecure -X GET \
@@ -439,11 +439,9 @@ curl --insecure -X GET \
 
 ```
 
-### Sample Request body 
 
-None
 
-### Sample Response header 
+> Sample Response header 
 
 ```
 allow:	GET
@@ -459,7 +457,7 @@ x-frame-options:	sameorigin
 
 ```
 
-### Sample Response body 
+> Sample Response body 
 
 ```
 { 
@@ -525,7 +523,7 @@ Make note of the Computer System Id as it is required to perform subsequent acti
 
 
 
->  Usage
+
 
 ```
 curl -i --insecure -X POST \
@@ -551,7 +549,7 @@ curl -i --insecure -X POST \
 }
 ```
 
-> Request Parameters
+### Request Parameters
 
 |Parameter|Type|Description|
 |---------|----|-----------|
@@ -575,7 +573,9 @@ x-frame-options:sameorigin
 
 >  Sample Response body
 
+```
 None
+```
 
 ## Resetting one or more servers
 
@@ -593,7 +593,7 @@ You can perform reset on a group of servers by specifying multiple target URIs i
 
 To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the servers are successfully reset, 200 response code along with a success message in the response body is returned.
 
-###  Usage
+
 
 ```
 curl --insecure -X POST \
@@ -632,7 +632,7 @@ curl --insecure -X POST \
 
 ```
 
-###  Sample Request body
+>  Sample Request body
 
 ```
 { 
@@ -692,7 +692,7 @@ curl --insecure -X POST \
 |PowerCycle|Perform a power cycle of the unit.|
 |PushPowerButton|Simulate the pressing of the physical power button on this unit.|
 
-###  Sample Response header
+>  Sample Response header
 
 ```
 content-length:	0 byte
@@ -704,9 +704,11 @@ status:	202
 x-frame-options:	sameorigin
 ```
 
-###  Sample Response body
+>  Sample Response body
 
+```
 None
+```
 
 ##  Changing the boot order of a set of servers to default settings
 
@@ -724,7 +726,7 @@ You can perform setDefaultBootOrder on a group of servers by specifying multiple
 
 To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See [How to monitor a task](#). If the setDefaultBootOrder action is successful, 200 response code along with a success message in the response body is returned.
 
-###  Usage
+
 
 ```
 curl --insecure -X POST \
@@ -763,7 +765,7 @@ curl --insecure -X POST \
 
 ```
 
-###  Sample Request body
+>  Sample Request body
 
 ```
 { 
@@ -795,7 +797,7 @@ curl --insecure -X POST \
 |parameters\[ \{|array|The parameters associated with the SetDefaultBootOrder Action.|
 |ServerCollection \} \]<br> | |Target servers for setDefaultBootOrder|
 
-###  Sample Response header
+>  Sample Response header
 
 ```
 status:	202
@@ -808,10 +810,11 @@ date:
 Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 ```
 
-###  Sample Response body
+>  Sample Response body
 
+```
 None
-
+```
 
 
 ##  Deleting a Server
@@ -828,7 +831,7 @@ This action removes a specific server from the inventory.
 
 To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully removed from the inventory, 200 response code is returned.
 
-###  Usage
+
 
 ```
 curl --insecure -X POST \
@@ -854,7 +857,7 @@ curl --insecure -X POST \
 
 ```
 
-###  Sample Request body
+>  Sample Request body
 
 ```
 {
@@ -886,7 +889,7 @@ curl --insecure -X POST \
 |parameters\[ \{|array|The parameters associated with the Delete Action.|
 |Name \} \]<br> |string|The URI of the target to be removed - `"/redfish/v1/Systems/{ComputerSystemId}"` |
 
-###  Sample Response header
+> Sample Response header
 
 ```
 content-length:	0 byte
@@ -898,10 +901,11 @@ status:	202
 x-frame-options:	sameorigin
 ```
 
-###  Sample Response body
+>  Sample Response body
 
+```
 None
-
+```
 
 
 #  Managing tasks
