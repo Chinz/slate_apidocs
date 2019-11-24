@@ -3,6 +3,9 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - curl
+  - sample response header
+  - sample request body
+  - sample response header
 
 
 toc_footers:
@@ -26,19 +29,19 @@ to the requirements of the end customer.
 
 # Introduction to Framework for Open Distributed Manageability
 
-  Managing a multitude of IT infrastructure devices of different make and type has never been easy, especially, when they exist across multiple data centers.
+  Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple data centers.
 
-The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution for IT infrastructure manageability: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
+The FODIM \(Framework for Open Distributed Manageability\) RESTful API is a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
  
  The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.
 
-It exposes RESTful APIs that are architected as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
+It exposes RESTful APIs that are designed as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
 
 ## Key benefits of FODIM
 
 - **Simplifies lifecycle management of southbound infrastructure**: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. 
 
-- **Scalable**: leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices alike(from stand-alone servers to rack mount and bladed environments to large scale server environments).
+- **Scalable**: leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices(from stand-alone servers to rack mount and bladed environments to large scale server environments).
 
 - **Simplifies interaction of northbound clients with southbound systems**: FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
 
@@ -65,8 +68,11 @@ Curl is a command line tool which helps you get or send information through URLs
 It is available at http://curl.haxx.se/ .
 
 All the cURL examples use the following options(flags):
--  `--insecure` bypasses validation of the HTTPS certificate. In actual        usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
--  `-i` returns HTTP response headers.
+-  `--insecure` 
+      Bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
+	   
+-  `-i` 
+      returns HTTP response headers.
 
 
 #  List of supported APIs
