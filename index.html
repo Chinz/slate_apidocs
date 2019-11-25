@@ -367,8 +367,13 @@ technical personnel who customize and
 deploy this optimized solution according
 to the requirements of the end customer.</p>
 <h1 id='introduction-to-framework-for-open-distributed-manageability'>Introduction to Framework for Open Distributed Manageability</h1>
-<p>Welcome to the FODIM API!
- the FODIM API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.</p>
+<p>Welcome to the FODIM API!</p>
+
+<p>Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple data centers.</p>
+
+<p>The FODIM (Framework for Open Distributed Manageability) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and plugins(generic Redfish plugin and vendor-specific plugins such as HPE iLO, CFM).</p>
+
+<p>The FODIM API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.</p>
 
 <p>The APIs exposed by the FODIM are organized around REST and are designed as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
 All request and response bodies, including errors, are in JSON format.</p>
@@ -1361,10 +1366,14 @@ x-frame-options:    sameorigin
 </code></pre><h2 id='changing-the-boot-order-of-a-set-of-servers-to-default-settings'>Changing the boot order of a set of servers to default settings</h2>
 <table><thead>
 <tr>
+<th><strong>Method</strong></th>
 <th><code>POST</code></th>
-<th><code>/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder</code></th>
 </tr>
 </thead><tbody>
+<tr>
+<td><strong>URI</strong></td>
+<td><code>/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder</code></td>
+</tr>
 <tr>
 <td><strong>Returns</strong></td>
 <td>Location URI of the Task Monitor associated with this operation in the response header.</td>
