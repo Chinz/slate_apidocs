@@ -40,7 +40,7 @@ The APIs exposed by the FODIM are organized around REST and are designed as per 
 
 All request and response bodies, including errors, are in JSON format.
 
-## Key benefits of FODIM
+## Key benefits of the FODIM
 
 - **Simplifies lifecycle management of southbound infrastructure**: the FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. 
 
