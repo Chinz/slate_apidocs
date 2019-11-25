@@ -1007,7 +1007,7 @@ It is available at http://curl.haxx.se/ .</p>
 <td><code>200</code> on success</td>
 </tr>
 </tbody></table>
-<pre class="highlight plaintext"><code>curl --insecure -X GET \
+<pre class="highlight plaintext"><code>curl -i --insecure -X GET \
    -H "X-Auth-Token:{X-Auth-Token}" \
  'https://{FODIM_IP_address}/redfish/v1/AggregationService'
 
@@ -1185,7 +1185,7 @@ x-frame-options:sameorigin
 <p>You can perform reset on a group of servers by specifying multiple target URIs in the request.</p>
 
 <p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the servers are successfully reset, <code>200</code> response code along with a success message in the response body is returned.</p>
-<pre class="highlight plaintext"><code>curl --insecure -X POST \
+<pre class="highlight plaintext"><code>curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1390,7 +1390,7 @@ x-frame-options:    sameorigin
 <p>You can perform setDefaultBootOrder on a group of servers by specifying multiple server URIs in the request.</p>
 
 <p>To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the setDefaultBootOrder action is successful, <code>200</code> response code along with a success message in the response body is returned.</p>
-<pre class="highlight plaintext"><code>curl --insecure -X POST \
+<pre class="highlight plaintext"><code>curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -1528,7 +1528,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 <p>This action removes a specific server from the inventory.</p>
 
 <p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully removed from the inventory, <code>200</code> response code is returned.</p>
-<pre class="highlight plaintext"><code>curl --insecure -X POST \
+<pre class="highlight plaintext"><code>curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
