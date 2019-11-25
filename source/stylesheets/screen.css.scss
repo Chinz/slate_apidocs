@@ -290,7 +290,7 @@ html, body {
     line-height: 30px;
     outline: 0;
 	border-radius: 8px;
-	margin-right: 10px;
+	margin: 6px;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
@@ -548,6 +548,8 @@ html, body {
       background-color: $code-annotation-bg;
       padding: $code-annotation-padding 2em;
       color: #eee;
+	  border-radius: 8px;
+      margin: 6px;
     }
   }
 }
