@@ -18,20 +18,21 @@ search: true
 
 This document provides helpful reference
 information for the REST API requests
-that you can send to FODIM RESTful API.
+that you can send to the FODIM API.
 This document is intended for the
 technical personnel who customize and
 deploy this optimized solution according
 to the requirements of the end customer.
 
 
-# Introduction to Framework for Open Distributed Manageability
+# Introduction to Framework for Open Distributed Manageability(FODIM)
 
  Welcome to the FODIM API!
  
- Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple data centers. 
+ Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple locations. 
  
- The FODIM \(Framework for Open Distributed Manageability\) API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and plugins(generic Redfish plugin and vendor-specific plugins such as HPE iLO, CFM).
+ With the help of the FODIM API and a set of plugins(generic Redfish plugin and vendor-specific plugins such as HPE iLO, CFM), you can virtually bring all the devices(compute, storage, and fabric) to be managed in one place.
+ 
  
 The FODIM API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.
 
