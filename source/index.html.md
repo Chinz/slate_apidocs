@@ -438,7 +438,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
  
 
 ```
-curl --insecure -X GET \
+curl -i --insecure -X GET \
    -H "X-Auth-Token:{X-Auth-Token}" \
  'https://{FODIM_IP_address}/redfish/v1/AggregationService'
 
@@ -602,7 +602,7 @@ To know the status of the progress of this operation, perform GET on the URI of 
 
 
 ```
-curl --insecure -X POST \
+curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -735,7 +735,7 @@ To know the status of the progress of this operation, perform GET on the URI of 
 
 
 ```
-curl --insecure -X POST \
+curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
@@ -840,7 +840,7 @@ To know the status of the progress of this operation, perform GET on the URI of 
 
 
 ```
-curl --insecure -X POST \
+curl -i --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
    -d \
