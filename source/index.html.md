@@ -31,17 +31,17 @@ to the requirements of the end customer.
 
 The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
  
- The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.
+ The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.
 
 The RESTful APIs exposed by the FODIM are designed as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.
 
 ## Key benefits of FODIM
 
-- **Simplifies lifecycle management of southbound infrastructure**: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. 
+- **Simplifies lifecycle management of southbound infrastructure**: the FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. 
 
 - **Scalable**: leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices(from stand-alone servers to rack mount and bladed environments to large scale server environments).
 
-- **Simplifies interaction of northbound clients with southbound systems**: FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
+- **Simplifies interaction of northbound clients with southbound systems**: the FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
 
 ##  FODIM logical architecture
 
@@ -66,8 +66,9 @@ Curl is a command line tool which helps you get or send information through URLs
 It is available at http://curl.haxx.se/ .
 
 All the cURL examples use the following options(flags):
--    `--insecure` 
-       bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
+
+-     ` --insecure ` 
+        bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. 
 	   
 -    `-i` 
        returns HTTP response headers.
@@ -230,7 +231,7 @@ NOTE:
 
 A session represents a window of user's login with a Redfish service and contains details about the user and the user activity. You can run multiple sessions simultaneously on FODIM.
 
-FODIM offers Redfish SessionService interface for managing sessions and exposes APIs to achieve the following:
+The FODIM offers Redfish SessionService interface for managing sessions and exposes APIs to achieve the following:
 
 -   Fetching the SessionService root
 
@@ -260,7 +261,7 @@ FODIM supports role-based authorization of requests - the roles and privileges c
 
 A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.
 
-See [Creating a role](#).
+See [creating and managing role](#).
 
 With FODIM, there are two kinds of defined roles:
 
@@ -281,10 +282,10 @@ With FODIM, there are two kinds of defined roles:
     -    admin
  :   The admin is an OEM pre-defined role that has all the privileges needed to manage all services. The admin can perform any actions such as adding and removing equipments, adding or removing users or privileges, and so on.
 
-    -    Client
+    -    client
  :   The client is an OEM role that uses the northbound APIs to manage the southbound infrastructure.
 
-    -    Monitor
+    -    monitor
  :   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.
 
 
@@ -338,8 +339,8 @@ The privileges set for a Redfish pre-defined role cannot be modified.
 |ReadOnly \(Redfish pre-defined\)| -   Login<br>-   ConfigureSelf<br>
  |
 |admin \(OEM\)| |
-|Client \(OEM\)| |
-|Monitor \(OEM\)| |
+|client \(OEM\)| |
+|monitor \(OEM\)| |
 
 #  Creating and managing user accounts
 
@@ -382,7 +383,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 #  Aggregating and managing southbound infrastructure
 
-One of the state-of-the-art features of FODIM is that it allows users to add and group southbound infrastructure\(servers, storage, or fabrics\) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:
+One of the state-of-the-art features of the FODIM is that it allows users to add and group southbound infrastructure\(servers, storage, or fabrics\) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:
 
 -   Adding a resource in the inventory to manage.
 
@@ -441,7 +442,7 @@ curl --insecure -X GET \
 
 
 
-> Sample Response header 
+> Sample response header 
 
 ```
 allow:	GET
@@ -457,7 +458,7 @@ x-frame-options:	sameorigin
 
 ```
 
-> Sample Response body 
+> Sample response body 
 
 ```
 { 
@@ -499,7 +500,7 @@ x-frame-options:	sameorigin
 
 # Use case for server aggregation
 
-##  Adding a Server
+##  Adding a server
 
 |**Method** |`POST`|
 |-----|-------------------|
@@ -536,7 +537,7 @@ curl -i --insecure -X POST \
 
 ```
 
-> Sample Request body
+> Sample request body
 
 ```
 {
@@ -558,7 +559,7 @@ curl -i --insecure -X POST \
 |Password|string|The password for this user account|
 |PluginID|string|The plugin id Example : GRF \(Generic Redfish Plugin\)<br> |
 
->  Sample Response header
+>  Sample response header
 
 ```
 content-length:0 byte
@@ -571,7 +572,7 @@ status:202
 x-frame-options:sameorigin
 ```
 
->  Sample Response body
+>  Sample response body
 
 ```
 None
@@ -591,7 +592,7 @@ This action shuts down, powers up, and restarts one or more servers.
 
 You can perform reset on a group of servers by specifying multiple target URIs in the request.
 
-To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the servers are successfully reset, 200 response code along with a success message in the response body is returned.
+To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the servers are successfully reset, `200` response code along with a success message in the response body is returned.
 
 
 
@@ -632,7 +633,7 @@ curl --insecure -X POST \
 
 ```
 
->  Sample Request body
+>  Sample request body
 
 ```
 { 
@@ -704,7 +705,7 @@ status:	202
 x-frame-options:	sameorigin
 ```
 
->  Sample Response body
+>  Sample response body
 
 ```
 None
@@ -724,7 +725,7 @@ This action changes the boot order of one or more servers to default settings.
 
 You can perform setDefaultBootOrder on a group of servers by specifying multiple server URIs in the request.
 
-To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See [How to monitor a task](#). If the setDefaultBootOrder action is successful, 200 response code along with a success message in the response body is returned.
+To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See [How to monitor a task](#). If the setDefaultBootOrder action is successful, `200` response code along with a success message in the response body is returned.
 
 
 
@@ -765,7 +766,7 @@ curl --insecure -X POST \
 
 ```
 
->  Sample Request body
+>  Sample request body
 
 ```
 { 
@@ -797,7 +798,7 @@ curl --insecure -X POST \
 |parameters\[ \{|array|The parameters associated with the SetDefaultBootOrder Action.|
 |ServerCollection \} \]<br> | |Target servers for setDefaultBootOrder|
 
->  Sample Response header
+>  Sample response header
 
 ```
 status:	202
@@ -810,7 +811,7 @@ date:
 Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 ```
 
->  Sample Response body
+>  Sample response body
 
 ```
 None
@@ -829,7 +830,7 @@ None
 
 This action removes a specific server from the inventory.
 
-To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully removed from the inventory, 200 response code is returned.
+To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See [How to monitor a task](#). If the server is successfully removed from the inventory, `200` response code is returned.
 
 
 
@@ -857,7 +858,7 @@ curl --insecure -X POST \
 
 ```
 
->  Sample Request body
+>  Sample request body
 
 ```
 {
@@ -889,7 +890,7 @@ curl --insecure -X POST \
 |parameters\[ \{|array|The parameters associated with the Delete Action.|
 |Name \} \]<br> |string|The URI of the target to be removed - `"/redfish/v1/Systems/{ComputerSystemId}"` |
 
-> Sample Response header
+> Sample response header
 
 ```
 content-length:	0 byte
@@ -901,7 +902,7 @@ status:	202
 x-frame-options:	sameorigin
 ```
 
->  Sample Response body
+>  Sample response body
 
 ```
 None
@@ -914,7 +915,7 @@ A task represents an operation that takes more time than a user typically wants 
 
 An example of a task is resetting an aggregate of servers. Resetting all the servers in a group is a time-consuming operation; the user waiting for the result would be blocked from performing other operations. FODIM creates Redfish tasks for such long-duration operations and offers an interface for the users to manage them while performing other operations.
 
-FODIM exposes Redfish TaskService APIs and Task monitor API. Use these endpoints to manage and poll tasks for their completion.
+The FODIM exposes Redfish TaskService APIs and Task monitor API. Use these endpoints to manage and poll tasks for their completion.
 
 ##  Prerequisites
 
@@ -937,7 +938,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 #  Subscribing northbound clients to southbound events
 
-FODIM offers an eventing interface that allows northbound clients to interact and receive notifications such as alarms from southbound equipment. It exposes Redfish EventService APIs as an interface for managing events.
+The FODIM offers an eventing interface that allows northbound clients to interact and receive notifications such as alarms from southbound equipment. It exposes Redfish EventService APIs as an interface for managing events.
 
 Events are messages provided by the service to asynchronously notify the client of some significant state change or error condition, usually of a time critical nature.
 
@@ -965,7 +966,7 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 # Accessing the inventory of a managed southbound resource
 
-FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.
+The FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.
 
 Use these endpoints to discover information on all the telemetry you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.
 
