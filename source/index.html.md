@@ -29,7 +29,7 @@ to the requirements of the end customer.
 
   Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple data centers.
 
-The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.
+The FODIM \(Framework for Open Distributed Manageability\) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and plugins(generic Redfish plugin and vendor-specific plugins such as HPE iLO, CFM).
  
  The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.
 
@@ -261,7 +261,7 @@ FODIM supports role-based authorization of requests - the roles and privileges c
 
 A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.
 
-See [creating and managing role](#).
+See [creating a role](#).
 
 With FODIM, there are two kinds of defined roles:
 
@@ -713,9 +713,8 @@ None
 
 ##  Changing the boot order of a set of servers to default settings
 
-|**Method** |`POST`|
+|`POST` |`/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder`|
 |-----|-------------------|
-|**URI** |`/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder` |
 |**Returns** |Location URI of the Task Monitor associated with this operation in the response header.|
 |**Response Code** |`202` on success|
 
@@ -818,7 +817,7 @@ None
 ```
 
 
-##  Deleting a Server
+##  Deleting a server
 
 |**Method** |`POST` |
 |------|-----------|
@@ -966,9 +965,9 @@ X-AUTH-TOKEN authentication or Basic authentication.
 
 # Accessing the inventory of a managed southbound resource
 
-The FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.
+The FODIM allows northbound clients to access the inventory of southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search the inventory based on specific resource parameters.
 
-Use these endpoints to discover information on all the telemetry you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.
+Use these endpoints to discover information on all the telemetry data you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.
 
 ##  Prerequisites
 
