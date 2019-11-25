@@ -295,7 +295,7 @@
             <a href="#use-case-for-server-aggregation" class="toc-h1 toc-link" data-title="Use case for server aggregation">Use case for server aggregation</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#adding-a-server" class="toc-h2 toc-link" data-title="Adding a Server">Adding a Server</a>
+                    <a href="#adding-a-server" class="toc-h2 toc-link" data-title="Adding a server">Adding a server</a>
                   </li>
                   <li>
                     <a href="#resetting-one-or-more-servers" class="toc-h2 toc-link" data-title="Resetting one or more servers">Resetting one or more servers</a>
@@ -371,14 +371,14 @@ to the requirements of the end customer.</p>
 
 <p>The FODIM (Framework for Open Distributed Manageability) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.</p>
 
-<p>The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of IT infrastructure equipment distributed across multiple data centers.</p>
+<p>The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.</p>
 
 <p>The RESTful APIs exposed by the FODIM are designed as per Redfish Scalable Platforms API specification v1.4.0 DSP0266.</p>
 <h2 id='key-benefits-of-fodim'>Key benefits of FODIM</h2>
 <ul>
-<li><p><strong>Simplifies lifecycle management of southbound infrastructure</strong>: FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. </p></li>
+<li><p><strong>Simplifies lifecycle management of southbound infrastructure</strong>: the FODIM allows you to group southbound resources into one aggregate and modify them collectively. It also performs a detailed inventory of southbound resources and offers an aggregated access it. </p></li>
 <li><p><strong>Scalable</strong>: leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices(from stand-alone servers to rack mount and bladed environments to large scale server environments).</p></li>
-<li><p><strong>Simplifies interaction of northbound clients with southbound systems</strong>: FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.</p></li>
+<li><p><strong>Simplifies interaction of northbound clients with southbound systems</strong>: the FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.</p></li>
 </ul>
 <h2 id='fodim-logical-architecture'>FODIM logical architecture</h2>
 <p>The FODIM based on Redfish standards uses RESTful API to create an environment that is designed to be implemented on many different models of servers and other IT infrastructure devices for years to come. These devices may be quite different from one another. For this reason, the Redfish API does not specify the URIs to various resources.</p>
@@ -397,13 +397,13 @@ The examples shown in this document use cURL to make HTTP requests.</p>
 <p>Curl is a command line tool which helps you get or send information through URLs using supported protocols(<code>HTTP</code> in the case of FODIM).
 It is available at http://curl.haxx.se/ .</p>
 
-<p>All the cURL examples use the following options(flags):
--    <code>--insecure</code> 
-       bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. </p>
+<p>All the cURL examples use the following options(flags):</p>
 
 <ul>
-<li>   <code>-i</code> 
-   returns HTTP response headers.</li>
+<li><p><code>--insecure</code> 
+    bypasses validation of the HTTPS certificate. In actual usage, the FODIM RESTful API should be configured to use a  user-supplied  certificate and this option is not necessary. </p></li>
+<li><p><code>-i</code> 
+   returns HTTP response headers.</p></li>
 </ul>
 <h1 id='list-of-supported-apis'>List of supported APIs</h1>
 <p>FODIM Redfish supports the following APIs:</p>
@@ -805,7 +805,7 @@ It is available at http://curl.haxx.se/ .</p>
 <h1 id='creating-and-managing-sessions'>Creating and managing sessions</h1>
 <p>A session represents a window of user&#39;s login with a Redfish service and contains details about the user and the user activity. You can run multiple sessions simultaneously on FODIM.</p>
 
-<p>FODIM offers Redfish SessionService interface for managing sessions and exposes APIs to achieve the following:</p>
+<p>The FODIM offers Redfish SessionService interface for managing sessions and exposes APIs to achieve the following:</p>
 
 <ul>
 <li><p>Fetching the SessionService root</p></li>
@@ -824,7 +824,7 @@ It is available at http://curl.haxx.se/ .</p>
 <h2 id='roles'>Roles</h2>
 <p>A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.</p>
 
-<p>See <a href="#">Creating a role</a>.</p>
+<p>See <a href="#">creating and managing role</a>.</p>
 
 <p>With FODIM, there are two kinds of defined roles:</p>
 
@@ -845,9 +845,9 @@ It is available at http://curl.haxx.se/ .</p>
 <ul>
 <li>   admin
 :   The admin is an OEM pre-defined role that has all the privileges needed to manage all services. The admin can perform any actions such as adding and removing equipments, adding or removing users or privileges, and so on.</li>
-<li>   Client
+<li>   client
 :   The client is an OEM role that uses the northbound APIs to manage the southbound infrastructure.</li>
-<li>   Monitor
+<li>   monitor
 :   The Monitor is an OEM role that is used typically by northbound monitoring solutions, this user role performs actions such as setting up subscriptions to be notified on Alerts from southbound infrastructure.</li>
 </ul></li>
 </ul>
@@ -916,11 +916,11 @@ It is available at http://curl.haxx.se/ .</p>
 <td></td>
 </tr>
 <tr>
-<td>Client (OEM)</td>
+<td>client (OEM)</td>
 <td></td>
 </tr>
 <tr>
-<td>Monitor (OEM)</td>
+<td>monitor (OEM)</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -954,7 +954,7 @@ It is available at http://curl.haxx.se/ .</p>
 <h2 id='authentication'>Authentication</h2>
 <p>X-AUTH-TOKEN authentication or Basic authentication.</p>
 <h1 id='aggregating-and-managing-southbound-infrastructure'>Aggregating and managing southbound infrastructure</h1>
-<p>One of the state-of-the-art features of FODIM is that it allows users to add and group southbound infrastructure(servers, storage, or fabrics) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:</p>
+<p>One of the state-of-the-art features of the FODIM is that it allows users to add and group southbound infrastructure(servers, storage, or fabrics) into one aggregate for easy manageability. It offers Redfish AggregationService as an interface and exposes endpoints to achieve the following:</p>
 
 <ul>
 <li><p>Adding a resource in the inventory to manage.</p></li>
@@ -1010,7 +1010,7 @@ It is available at http://curl.haxx.se/ .</p>
 
 </code></pre>
 <blockquote>
-<p>Sample Response header </p>
+<p>Sample response header </p>
 </blockquote>
 <pre class="highlight plaintext"><code>allow:  GET
 cache-control:  no-cache
@@ -1025,7 +1025,7 @@ x-frame-options:    sameorigin
 
 </code></pre>
 <blockquote>
-<p>Sample Response body </p>
+<p>Sample response body </p>
 </blockquote>
 <pre class="highlight plaintext"><code>{ 
    "@odata.context":"/redfish/v1/$metadata#AggregationService.AggregationService",
@@ -1060,7 +1060,7 @@ x-frame-options:    sameorigin
       "State":"Enabled"
    }
 }
-</code></pre><h1 id='use-case-for-server-aggregation'>Use case for server aggregation</h1><h2 id='adding-a-server'>Adding a Server</h2>
+</code></pre><h1 id='use-case-for-server-aggregation'>Use case for server aggregation</h1><h2 id='adding-a-server'>Adding a server</h2>
 <table><thead>
 <tr>
 <th><strong>Method</strong></th>
@@ -1099,7 +1099,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
 
 </code></pre>
 <blockquote>
-<p>Sample Request body</p>
+<p>Sample request body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>{
     "ManagerAddress": "10.24.0.6",
@@ -1140,7 +1140,7 @@ On success, ORCA specified Computer System Id is assigned to the added server.</
 </tbody></table>
 
 <blockquote>
-<p>Sample Response header</p>
+<p>Sample response header</p>
 </blockquote>
 <pre class="highlight plaintext"><code>content-length:0 byte
 content-type:application/json; charset=utf-8
@@ -1152,7 +1152,7 @@ status:202
 x-frame-options:sameorigin
 </code></pre>
 <blockquote>
-<p>Sample Response body</p>
+<p>Sample response body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>None
 </code></pre><h2 id='resetting-one-or-more-servers'>Resetting one or more servers</h2>
@@ -1180,7 +1180,7 @@ x-frame-options:sameorigin
 
 <p>You can perform reset on a group of servers by specifying multiple target URIs in the request.</p>
 
-<p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the servers are successfully reset, 200 response code along with a success message in the response body is returned.</p>
+<p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the servers are successfully reset, <code>200</code> response code along with a success message in the response body is returned.</p>
 <pre class="highlight plaintext"><code>curl --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
@@ -1217,7 +1217,7 @@ x-frame-options:sameorigin
 
 </code></pre>
 <blockquote>
-<p>Sample Request body</p>
+<p>Sample request body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>{ 
    "@Redfish.Copyright":"Copyright 2018-2019 DMTF. All rights reserved.",
@@ -1357,7 +1357,7 @@ status: 202
 x-frame-options:    sameorigin
 </code></pre>
 <blockquote>
-<p>Sample Response body</p>
+<p>Sample response body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>None
 </code></pre><h2 id='changing-the-boot-order-of-a-set-of-servers-to-default-settings'>Changing the boot order of a set of servers to default settings</h2>
@@ -1385,7 +1385,7 @@ x-frame-options:    sameorigin
 
 <p>You can perform setDefaultBootOrder on a group of servers by specifying multiple server URIs in the request.</p>
 
-<p>To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the setDefaultBootOrder action is successful, 200 response code along with a success message in the response body is returned.</p>
+<p>To know the status of the progress of this operation, perform GET on the URI of the Task Monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the setDefaultBootOrder action is successful, <code>200</code> response code along with a success message in the response body is returned.</p>
 <pre class="highlight plaintext"><code>curl --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
@@ -1422,7 +1422,7 @@ x-frame-options:    sameorigin
 
 </code></pre>
 <blockquote>
-<p>Sample Request body</p>
+<p>Sample request body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>{ 
    "@Redfish.Copyright":"Copyright 2018-2019 DMTF. All rights reserved.",
@@ -1485,7 +1485,7 @@ x-frame-options:    sameorigin
 </tbody></table>
 
 <blockquote>
-<p>Sample Response header</p>
+<p>Sample response header</p>
 </blockquote>
 <pre class="highlight plaintext"><code>status: 202
 content-type:   application/json; charset=utf-8
@@ -1497,7 +1497,7 @@ date:
 Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 </code></pre>
 <blockquote>
-<p>Sample Response body</p>
+<p>Sample response body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>None
 </code></pre><h2 id='deleting-a-server'>Deleting a Server</h2>
@@ -1523,7 +1523,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 <h3 id='description-4'>Description</h3>
 <p>This action removes a specific server from the inventory.</p>
 
-<p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully removed from the inventory, 200 response code is returned.</p>
+<p>To know the status of the progress of this operation, perform GET on the URI of the task monitor returned in the Location header. See <a href="#">How to monitor a task</a>. If the server is successfully removed from the inventory, <code>200</code> response code is returned.</p>
 <pre class="highlight plaintext"><code>curl --insecure -X POST \
    -H "X-Auth-Token:{X-Auth-Token}" \
    -H "Content-Type:application/json" \
@@ -1547,7 +1547,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 
 </code></pre>
 <blockquote>
-<p>Sample Request body</p>
+<p>Sample request body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>{
     "@Redfish.Copyright": "Copyright 2018-2019 DMTF. All rights reserved.",
@@ -1614,7 +1614,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 </tbody></table>
 
 <blockquote>
-<p>Sample Response header</p>
+<p>Sample response header</p>
 </blockquote>
 <pre class="highlight plaintext"><code>content-length: 0 byte
 content-type:   application/json; charset=utf-8
@@ -1625,7 +1625,7 @@ status: 202
 x-frame-options:    sameorigin
 </code></pre>
 <blockquote>
-<p>Sample Response body</p>
+<p>Sample response body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>None
 </code></pre><h1 id='managing-tasks'>Managing tasks</h1>
@@ -1633,7 +1633,7 @@ x-frame-options:    sameorigin
 
 <p>An example of a task is resetting an aggregate of servers. Resetting all the servers in a group is a time-consuming operation; the user waiting for the result would be blocked from performing other operations. FODIM creates Redfish tasks for such long-duration operations and offers an interface for the users to manage them while performing other operations.</p>
 
-<p>FODIM exposes Redfish TaskService APIs and Task monitor API. Use these endpoints to manage and poll tasks for their completion.</p>
+<p>The FODIM exposes Redfish TaskService APIs and Task monitor API. Use these endpoints to manage and poll tasks for their completion.</p>
 <h2 id='prerequisites-2'>Prerequisites</h2>
 <ul>
 <li>  Ensure that the user has <code>Login</code> privilege at the minimum.</li>
@@ -1648,7 +1648,7 @@ x-frame-options:    sameorigin
 <li><p><code>/taskmon/{TaskID}</code></p></li>
 </ul>
 <h1 id='subscribing-northbound-clients-to-southbound-events'>Subscribing northbound clients to southbound events</h1>
-<p>FODIM offers an eventing interface that allows northbound clients to interact and receive notifications such as alarms from southbound equipment. It exposes Redfish EventService APIs as an interface for managing events.</p>
+<p>The FODIM offers an eventing interface that allows northbound clients to interact and receive notifications such as alarms from southbound equipment. It exposes Redfish EventService APIs as an interface for managing events.</p>
 
 <p>Events are messages provided by the service to asynchronously notify the client of some significant state change or error condition, usually of a time critical nature.</p>
 
@@ -1666,7 +1666,7 @@ x-frame-options:    sameorigin
 <li><p><code>redfish/v1/EventService</code></p></li>
 </ul>
 <h1 id='accessing-the-inventory-of-a-managed-southbound-resource'>Accessing the inventory of a managed southbound resource</h1>
-<p>FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.</p>
+<p>The FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.</p>
 
 <p>Use these endpoints to discover information on all the telemetry you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.</p>
 <h2 id='prerequisites-4'>Prerequisites</h2>
