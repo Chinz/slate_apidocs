@@ -304,7 +304,7 @@
                     <a href="#changing-the-boot-order-of-a-set-of-servers-to-default-settings" class="toc-h2 toc-link" data-title="Changing the boot order of a set of servers to default settings">Changing the boot order of a set of servers to default settings</a>
                   </li>
                   <li>
-                    <a href="#deleting-a-server" class="toc-h2 toc-link" data-title="Deleting a Server">Deleting a Server</a>
+                    <a href="#deleting-a-server" class="toc-h2 toc-link" data-title="Deleting a server">Deleting a server</a>
                   </li>
               </ul>
           </li>
@@ -369,7 +369,7 @@ to the requirements of the end customer.</p>
 <h1 id='introduction-to-framework-for-open-distributed-manageability'>Introduction to Framework for Open Distributed Manageability</h1>
 <p>Managing a multitude of IT infrastructure devices of different make and type is something of a task, especially, when they exist across multiple data centers.</p>
 
-<p>The FODIM (Framework for Open Distributed Manageability) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and vendor specific plugins.</p>
+<p>The FODIM (Framework for Open Distributed Manageability) RESTful API offers a simple and effective solution which significantly reduces this workload: it virtually brings all the devices(compute, storage, and fabric) to be managed in one place with the help of Redfish compliant APIs and plugins(generic Redfish plugin and vendor-specific plugins such as HPE iLO, CFM).</p>
 
 <p>The FODIM RESTful API is a programming interface enabling easy and secure management of wide range of southbound equipment distributed across multiple data centers.</p>
 
@@ -824,7 +824,7 @@ It is available at http://curl.haxx.se/ .</p>
 <h2 id='roles'>Roles</h2>
 <p>A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.</p>
 
-<p>See <a href="#">creating and managing role</a>.</p>
+<p>See <a href="#">creating a role</a>.</p>
 
 <p>With FODIM, there are two kinds of defined roles:</p>
 
@@ -1363,14 +1363,10 @@ x-frame-options:    sameorigin
 </code></pre><h2 id='changing-the-boot-order-of-a-set-of-servers-to-default-settings'>Changing the boot order of a set of servers to default settings</h2>
 <table><thead>
 <tr>
-<th><strong>Method</strong></th>
 <th><code>POST</code></th>
+<th><code>/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder</code></th>
 </tr>
 </thead><tbody>
-<tr>
-<td><strong>URI</strong></td>
-<td><code>/redfish/v1/AggregatorService/Actions/AggregationService.SetDefaultBootOrder</code></td>
-</tr>
 <tr>
 <td><strong>Returns</strong></td>
 <td>Location URI of the Task Monitor associated with this operation in the response header.</td>
@@ -1500,7 +1496,7 @@ Fri, 08 Nov 2019 08:13:40 GMT+7m 10s
 <p>Sample response body</p>
 </blockquote>
 <pre class="highlight plaintext"><code>None
-</code></pre><h2 id='deleting-a-server'>Deleting a Server</h2>
+</code></pre><h2 id='deleting-a-server'>Deleting a server</h2>
 <table><thead>
 <tr>
 <th><strong>Method</strong></th>
@@ -1666,9 +1662,9 @@ x-frame-options:    sameorigin
 <li><p><code>redfish/v1/EventService</code></p></li>
 </ul>
 <h1 id='accessing-the-inventory-of-a-managed-southbound-resource'>Accessing the inventory of a managed southbound resource</h1>
-<p>The FODIM allows northbound clients to monitor telemetry data from southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search southbound resources by applying filters.</p>
+<p>The FODIM allows northbound clients to access the inventory of southbound compute, network, and storage resources including chassis by exposing Redfish SystemService endpoints. It also offers the capability to search the inventory based on specific resource parameters.</p>
 
-<p>Use these endpoints to discover information on all the telemetry you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.</p>
+<p>Use these endpoints to discover information on all the telemetry data you want to monitor such as CPU utilization, memory utilization, processor power consumption, thermal health.</p>
 <h2 id='prerequisites-4'>Prerequisites</h2>
 <ul>
 <li>  Ensure that the user has a minimum privilege of &quot;Login&quot;.</li>
