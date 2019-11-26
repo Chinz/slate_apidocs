@@ -46,7 +46,7 @@ All request and response bodies, including errors, are in JSON format.
 
 - **Scalable**: leveraging the resource aggregation capability of FODIM, you can manage a wide range of different southbound devices(from stand-alone servers to rack mount and bladed environments to large scale server environments).
 
-- **Simplifies interaction of northbound clients with southbound systems**: the FODIM offers a protocol independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
+- **Simplifies interaction of northbound clients with southbound systems**: the FODIM offers a protocol-independent eventing mechanism using which northbound clients get notified of alarms from southbound equipment.
 
 ##  FODIM logical architecture
 
@@ -260,11 +260,11 @@ The FODIM offers Redfish SessionService interface for managing sessions and expo
 
 #  Configuring roles and privileges for a user
 
-FODIM supports role-based authorization of requests - the roles and privileges control which users have what access to resources.
+The FODIM supports role-based authorization of requests - the roles and privileges control which users have what access to resources.
 
 ##  Roles
 
-A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assigned to a role at the time of role creation.
+A role represents a set of operations that a user is allowed to perform and is determined by a defined set of privileges. The privileges of a role are configurable - you can choose a privilege or a set of privileges to be assign to a role at the time of role creation.
 
 See [creating a role](#).
 
@@ -272,7 +272,8 @@ With FODIM, there are two kinds of defined roles:
 
 -   **Redfish pre-defined roles**
 
-    Redfish pre-defined roles come with a pre-defined set of privileges. Following are the Redfish pre-defined roles:
+    Redfish pre-defined roles come with a pre-defined set of privileges. You can assign additional OEM privileges.
+	Following are the Redfish pre-defined roles:
 
     -   Administrator
 
@@ -297,11 +298,8 @@ With FODIM, there are two kinds of defined roles:
 
 **NOTE:**
 
--   Every user is assigned one role at the time of user account creation; ensure that the role to be assigned to a user is created before creating a user account.
+Every user is assigned one role at the time of user account creation; ensure that an OEM role is created before assigning it to a user at the time of user account creation.
 
--   The Redfish pre-defined roles can include OEM privileges.
-
--   OEMs can create custom roles and assign the same to a user at the time of user creation.
 
 
 
