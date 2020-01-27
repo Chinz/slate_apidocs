@@ -56,7 +56,7 @@ The FODIM based on Redfish standards uses RESTful API to create an environment t
 
 # Using the FODIM RESTful API
 
-The FODIM RESTful API is available on version __ or later.
+The FODIM RESTful API is available on version 5.1 or later.
 
 To access the RESTful API, you need an HTTPS-capable client, such as a web browser with a REST Client plugin extension, or a Desktop REST Client application (such as Postman), or cURL (a popular, free command line utility).
 You can also easily write simple REST clients for RESTful APIs using modern scripting languages.
